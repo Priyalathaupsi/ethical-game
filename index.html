@@ -1,0 +1,755 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ethics Summit | Mountain Quest</title><style>
+:root{font-family:system-ui,Arial,sans-serif;color:#17344c;background:#eaf6fa}*{box-sizing:border-box}body{margin:0}button,a{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:10px 15px;font-weight:750;background:#135d82;color:#fff}button:disabled{opacity:.45;cursor:not-allowed}button.alt{background:#e5f2fa;color:#19475f}button:hover:not(:disabled){filter:brightness(1.08)}header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(18px,calc((100vw - 1280px)/2));background:#fff;box-shadow:0 3px 20px #17344c15;flex-wrap:wrap}header strong{font-size:21px}.tag{font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:#457c91}.stats{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pill{border-radius:30px;padding:8px 13px;background:#eaf4f7;font-size:13px;font-weight:800}.page{max-width:1300px;margin:auto;padding:18px;display:grid;grid-template-columns:minmax(330px,1fr) minmax(350px,520px);gap:18px;align-items:start}.mountain{position:relative;min-height:660px;border-radius:22px;overflow:hidden;background:linear-gradient(#79c9e9 0%,#c6eff3 57%,#a1c9a7 100%);box-shadow:0 15px 45px #194b6520}.cloud{position:absolute;top:13%;width:160px;height:40px;background:#fff9;border-radius:60px;filter:blur(2px);animation:cloud 25s linear infinite}.cloud:before,.cloud:after{content:"";position:absolute;border-radius:50%;background:#fff}.cloud:before{width:70px;height:70px;top:-36px;left:24px}.cloud:after{width:100px;height:56px;top:-23px;left:58px}.cloud.two{top:31%;left:40%;animation-duration:36s;transform:scale(.7)}@keyframes cloud{0%{translate:-230px}100%{translate:800px}}.mountain svg{position:absolute;inset:0;width:100%;height:100%}.trail{stroke:#fef4c5;stroke-width:10;fill:none;stroke-linecap:round;stroke-dasharray:4 18;filter:drop-shadow(0 2px 2px #4a5e54)}.station{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);z-index:2;width:min(140px,26%);min-height:91px;border:3px solid #fff8;border-radius:17px;padding:8px;background:#ffffffed;color:#17465e;box-shadow:0 7px 0 #194d6070,0 10px 22px #06364d30;text-align:center;transition:transform .2s;white-space:normal}.station:not(:disabled):hover{transform:translate(-50%,-55%) scale(1.04)}.station.locked{background:#cce0e3e9;color:#6a8991}.station.done{background:#d9f9dd}.station .emoji{font-size:28px;display:block}.station .num{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em}.station .name{display:block;font-weight:900;font-size:13px;line-height:1.2}.climber{position:absolute;left:var(--x);top:calc(var(--y) + 55px);font-size:35px;transition:left .8s,top .8s;transform:translate(-50%,-50%);z-index:3;filter:drop-shadow(0 4px 3px #285a5d9c);animation:bob 1.2s ease-in-out infinite alternate;pointer-events:none}@keyframes bob{to{translate:0 -5px}}.peak{position:absolute;left:50%;top:4%;font-size:29px;transform:translateX(-50%);text-align:center;font-weight:900;color:#164c6e;text-shadow:0 2px #fff}.panel{border-radius:22px;background:#fff;min-height:660px;padding:22px;box-shadow:0 15px 45px #194b6520}.panel h1{font-size:27px;line-height:1.15;margin:5px 0 9px}.panel p{line-height:1.48}.muted{color:#60788a;font-size:14px}.topline{display:flex;align-items:center;justify-content:space-between;gap:8px}.instructions{background:#eaf5f8;border-left:4px solid #3d9da7;border-radius:10px;padding:12px;margin:12px 0}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.gamearea{margin-top:14px}.board{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:15px 0}.tile{background:#e9f5f8;color:#174b66;border:2px solid #b7dfe7;min-height:76px;padding:8px;font-size:13px}.tile.mark{background:#fdf1a8;border-color:#e6b62d}.tile.found{background:#bcf0d2;border-color:#389e74}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{background:#eaf4f9;color:#194b65;border:2px solid #b9dfe9}.chip.active{background:#fee0a6;color:#663d0a;border-color:#ecb645}.slot{display:flex;align-items:center;gap:9px;padding:9px;border:1px dashed #9cc8d0;border-radius:10px;margin:7px 0;min-height:43px;background:#f9fdff}.slot span{background:#d8edf2;border-radius:8px;padding:4px 8px;font-weight:800}.feedback{border-radius:12px;padding:12px;background:#e8f5fd;margin-top:12px;line-height:1.5}.feedback.success{background:#d9f7de}.feedback.warn{background:#fff2d0}.hangword{font-weight:900;font-size:28px;letter-spacing:.18em;text-align:center;margin:16px 0}.alphabet{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.alphabet button{padding:9px 2px}.figure{height:170px;width:190px;display:block;margin:auto;background:#ecf7fb;border-radius:12px}.fruits{height:340px;position:relative;overflow:hidden;border:3px solid #79b8ce;background:linear-gradient(#d4f5ff,#a4d4b8);border-radius:17px;touch-action:manipulation}.fruit{position:absolute;left:var(--fx);top:var(--fy);width:120px;min-height:70px;border-radius:52% 48% 50% 50%;border:3px solid #fff8;box-shadow:inset -8px -7px #0001,0 4px 9px #0003;background:var(--fc);color:#183b40;font-weight:850;padding:13px 8px;font-size:12px;white-space:normal;transform:translate(-50%,-50%);line-height:1.2}.fruit:before{content:'🍃';position:absolute;top:-19px;left:41%;font-size:20px}.fruit.good{outline:4px solid #198d58}.fruit.bad{outline:4px solid #d9534f}.fruitinfo{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin:10px 0;font-weight:800}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.memory{height:108px;border:2px solid #8cbacb;background:linear-gradient(135deg,#126b8d,#49a8bd);font-size:25px}.memory.face{background:#eff8f8;color:#16455a;font-size:12px;padding:7px}.memory.match{background:#d0f5db;border-color:#4bb781;color:#194b4e}.memory .cardtext{line-height:1.25}.small{font-size:12px}.meter{height:13px;background:#dbe9eb;overflow:hidden;border-radius:12px}.meter i{display:block;height:100%;background:#35a27e;transition:width .3s}.note{margin-top:14px;padding-top:12px;border-top:1px solid #d9e9ee;font-size:13px;color:#57717e}a{color:#0b728f}.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}.confetti b{position:absolute;top:-30px;animation:fall 2.4s linear forwards;font-size:25px}@keyframes fall{to{transform:translateY(110vh) rotate(850deg)}}@media(max-width:900px){.page{grid-template-columns:1fr}.mountain{min-height:550px}.panel{min-height:400px}}@media(max-width:550px){.page{padding:8px;gap:10px}.panel{padding:15px}.station{min-height:74px;width:28%;padding:5px}.station .name{font-size:11px}.station .emoji{font-size:22px}.mountain{min-height:540px}.board{gap:5px}.tile{min-height:62px;font-size:11px;padding:4px}.memory{height:100px}.cards{gap:5px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* STORYBOOK TWO-DIMENSIONAL EXPEDITION VISUAL THEME */
+:root{font-family:Trebuchet MS,system-ui,sans-serif;color:#2b392e;background:#e9eddf}
+body{background:linear-gradient(140deg,#d9eee9,#f4eed4 65%,#c8e6dc)}
+header{background:#fff8eb;border-bottom:3px solid #d8bb7b}
+header strong{color:#554322}
+.tag{color:#795d35}
+.mountain{min-height:710px;background:#80b5bc url('mountain-landscape.png') center center/cover no-repeat;border:5px solid #fff8e7;box-shadow:0 10px 30px #213b3761}
+.mountain .old-map-art,.mountain .cloud{display:none}
+.mountain:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 10%,#ffffff06 60%,#ffffff15);pointer-events:none}
+.peak{left:auto;right:2%;top:1%;transform:none;font-size:30px;color:#fffde4;text-shadow:0 2px 7px #142b20,0 0 2px #000;background:#315a41b9;border:2px solid #fff6c7;border-radius:12px;padding:6px 12px;z-index:4}
+.station{background:#fff5dbea;border:3px solid #e4bc62;border-radius:15px;color:#382f24;box-shadow:0 7px 0 #6c513b,0 13px 18px #132c2177;backdrop-filter:blur(2px);width:min(132px,25%);min-height:84px}
+.station.done{background:#d6f4d5ed;border-color:#438b5c}
+.station.locked{background:#e9e1d7d9;color:#786e63;border-color:#ad9f84}
+.station .name{font-size:12px}.station .emoji{font-size:24px}
+.climber{font-size:35px;top:calc(var(--y) + 49px);transition:left 2s ease-in-out,top 2s ease-in-out;filter:drop-shadow(1px 4px 3px #131c0b);background:#fff4da;border:3px solid #9c753f;border-radius:50%;width:46px;height:46px;text-align:center;line-height:40px}
+.panel{background:#fffbf0;border:3px solid #e6c78e;box-shadow:0 12px 30px #273a3440}
+.instructions{background:#fff1cd;border-left-color:#b48a46}
+.tile,.chip,.memory.face{background:#f5ebd8;color:#494031;border-color:#c5a66f}
+.tile.found,.memory.match{background:#d3f0ce;border-color:#56a361}
+.fruits{background:linear-gradient(#ccecfb,#f0dfaa 76%,#bad5a7);border-color:#ae8846}
+.figure{background:#f3ead4}
+button{background:#406e59}button.alt{background:#e8ddc4;color:#41382b}
+button:hover:not(:disabled){filter:brightness(1.12)}
+.atmosphere{position:absolute;pointer-events:none;z-index:1;width:190px;height:33px;border-radius:100%;background:#fff9;filter:blur(15px);animation:mistdrift 19s ease-in-out infinite alternate;opacity:.5}
+.mist1{top:34%;left:42%}.mist2{top:44%;left:17%;animation-delay:-9s;animation-duration:25s}
+@keyframes mistdrift{from{transform:translateX(-35px) scale(1)}to{transform:translateX(75px) scale(1.22)}}
+.fall-sheen{position:absolute;pointer-events:none;z-index:1;background:repeating-linear-gradient(180deg,#ffffff00 0 9px,#e7ffff93 14px,#ffffff00 26px);background-size:100% 68px;animation:flowdown 1.3s linear infinite;opacity:.35;filter:blur(2px);clip-path:polygon(0 0,100% 0,80% 100%,18% 100%)}
+.fall1{left:90%;top:39%;width:7%;height:31%;transform:rotate(1deg)}.fall2{left:77%;top:77%;height:23%;width:6%;transform:rotate(-20deg)}
+@keyframes flowdown{to{background-position:0 68px}}
+.floating-sparkles{position:absolute;left:7%;bottom:7%;color:#fff4a5;font-size:18px;text-shadow:0 0 9px #ffc72b;pointer-events:none;animation:twinkle 4s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.2;transform:translateY(3px)}to{opacity:.95;transform:translateY(-8px)}}
+@media(max-width:900px){.mountain{min-height:620px}}
+@media(max-width:550px){.mountain{min-height:560px;background-position:57% center}.station{width:29%;min-height:76px;padding:5px 2px}.station .name{font-size:10px}.station .num{font-size:9px}.peak{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.atmosphere,.fall-sheen,.floating-sparkles{animation:none!important}.climber{transition:none!important}}
+.case-card{background:#fff7e3;border:2px solid #dabf83;border-radius:15px;padding:16px;margin:12px 0}.tile.incorrect{background:#ffb8a9!important;border-color:#bb4b41!important;animation:wrongflash .45s ease}.tile:disabled{cursor:default}.tile.found:disabled{opacity:1}@keyframes wrongflash{0%,100%{transform:translateX(0)}30%{transform:translateX(-5px)}70%{transform:translateX(5px)}}
+
+
+/* Expedition redesign */
+:root{--earth:#f4f1e9;--forest:#154532;--gold:#e7ad48}body{background:var(--earth);color:#253c32}
+header{background:#fffdf7;border-bottom:3px solid #d7bc8e}header .brandrow{display:flex;align-items:center;gap:12px}header .logo{height:48px;max-width:145px;object-fit:contain}
+.page{grid-template-columns:minmax(0,1.18fr) minmax(390px,.82fr);max-width:1460px;gap:20px;align-items:stretch}
+.mountain{min-height:720px;background-image:linear-gradient(0deg,rgba(13,47,39,.08),rgba(255,255,255,.03)),url(mountain-landscape.png);background-position:center;background-size:cover;border:4px solid #dec8a0;box-shadow:0 18px 45px #254b3830}
+.old-map-art{display:none!important}.mountain .peak{top:2%;left:75%;padding:8px 12px;border-radius:12px;color:#fff;background:#164a3ac9;text-shadow:none;z-index:3;font-size:22px}
+.mountain .station{border:2px solid #fff7d2;background:#fff6d9eb;color:#263d30;box-shadow:0 5px 0 #355a43a0,0 12px 20px #0005;backdrop-filter:blur(3px)}.mountain .station.locked{background:#bbc5b5e8}.mountain .station.done{background:#d8ffdcf2}.mountain .station .name{font-size:13px}
+.mountain .climber{font-size:43px;filter:drop-shadow(0 4px 4px #182a1c)}.panel{background:#fffcf4;border:2px solid #dfc9a2;max-height:800px;overflow:auto}.panel h1{color:#224c37}.instructions{background:#eff3e7;border-left-color:#47805e}.case-card{background:#fbf1dc}.tile{font-size:12px;min-height:72px}
+footer.game-footer{margin-top:12px;padding:14px 22px;background:#fffdf7;border-top:2px solid #d7bc8e;display:flex;gap:15px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center;font-size:13px;color:#405c50}footer.game-footer img{height:37px;max-width:125px;object-fit:contain}
+.welcome{position:fixed;inset:0;z-index:100;background:linear-gradient(#0d261980,#09251bbb),url(mountain-landscape.png) center/cover;display:flex;align-items:center;justify-content:center;overflow:auto;padding:24px}
+.welcome[hidden]{display:none}.welcome-card{width:min(820px,100%);max-height:calc(100vh - 38px);overflow-y:auto;border:3px solid #e3c998;background:#fffaf0f5;box-shadow:0 16px 70px #0008;border-radius:22px;padding:clamp(18px,4vw,34px)}.welcome-card .brand{text-align:center}.welcome-card .brand img{width:min(270px,70%);max-height:110px;object-fit:contain}.welcome-card h1{text-align:center;font-size:clamp(28px,4vw,42px);color:#25523d;margin:12px 0 4px}.welcome-card h2{font-size:17px;margin:14px 0 5px}.welcome-card p,.welcome-card li{line-height:1.55}.welcome-card .subtitle{text-align:center;color:#56735a;font-weight:750}.welcome-card ol{padding-left:25px}.welcome-card .start{width:100%;padding:17px;font-size:17px;background:#246e47}
+.notes-link{display:inline-block;border-radius:10px;background:#e4eee4;color:#235338;font-weight:800;padding:8px 12px;text-decoration:none}
+@media(max-width:950px){.page{grid-template-columns:1fr}.mountain{min-height:600px}.panel{max-height:none;min-height:420px}}
+@media(max-width:550px){.mountain{min-height:550px;background-position:60% center}.station{width:29%!important}.mountain .peak{font-size:16px;left:76%}.board{gap:5px}.tile{font-size:10px;padding:4px}}
+@media(prefers-reduced-motion:reduce){.mountain *, .mountain *::before,.mountain *::after{animation:none!important}}
+
+/* Expedition upgrade: climber, environment, streak minigame, registration and summit */
+.climber{font-size:18px!important;display:flex;flex-direction:column;align-items:center;gap:0;filter:drop-shadow(2px 4px 3px #102d32bd);transition:left 1.8s cubic-bezier(.26,.52,.4,1),top 1.8s cubic-bezier(.26,.52,.4,1)!important;animation:hikerHop .55s ease-in-out infinite alternate!important;z-index:6!important}.hiker-head{font-size:31px;line-height:30px}.hiker-body{font-size:27px;line-height:23px}.hiker-legs{font-size:16px;letter-spacing:-4px;line-height:14px;animation:stride .35s ease-in-out infinite alternate}@keyframes stride{to{transform:rotate(17deg) translateX(4px)}}@keyframes hikerHop{to{transform:translate(-50%,-55%)}}.mountain{isolation:isolate}.mountain::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 45% 44%,#fff7 0%,transparent 38%);opacity:.23;pointer-events:none;animation:sunbreath 7s ease-in-out infinite alternate}@keyframes sunbreath{to{opacity:.56}}.floating-sparkles{animation:floatSpark 5s ease-in-out infinite alternate!important}@keyframes floatSpark{to{transform:translate(24px,-18px);opacity:.35}}.fall-sheen{animation:flowWater .9s linear infinite alternate!important}@keyframes flowWater{to{background-position:0 75px;opacity:.5}}.mist1{animation:mistDrift 18s linear infinite alternate!important}.mist2{animation:mistDrift 23s linear infinite alternate-reverse!important}@keyframes mistDrift{to{transform:translateX(55px)}}
+.figure{width:min(100%,410px)!important;height:auto!important;aspect-ratio:190/170;margin:15px auto 20px!important;box-shadow:0 6px 20px #194d6033}.fruitinfo{font-size:16px;font-weight:800}.streakdots{text-align:center;letter-spacing:10px;color:#087d56;font-size:26px;font-weight:900}.fruits{height:410px!important;background:linear-gradient(#ccefff,#b2e6d6 65%,#80b89d)!important}.fruit-fall{width:clamp(100px,26%,175px)!important;min-height:74px!important;border-radius:23px!important;font-size:clamp(11px,1.3vw,15px)!important;z-index:4}.ready-fall{text-align:center;padding:130px 18px;font-weight:850;font-size:22px}.ready-fall small{font-size:14px}.flash-good{box-shadow:inset 0 0 0 6px #38bd6d!important}.flash-bad{box-shadow:inset 0 0 0 6px #e44d42!important}
+.registration{z-index:55!important}.reg-card{width:min(610px,94vw)}.reg-card form{display:flex;flex-direction:column;gap:17px;margin-top:18px}.reg-card label{font-weight:800;color:#244f3d}.reg-card input{display:block;margin-top:6px;width:100%;padding:15px;font:inherit;border:2px solid #a5c0ad;border-radius:11px;background:white;color:#233f30}.reg-card input:focus{outline:3px solid #8dcaa6}.summit-screen{position:fixed;inset:0;z-index:100;background:linear-gradient(#152d2fc9,#10251ee6),url('mountain-landscape.png') center/cover;display:grid;place-items:center;padding:18px;overflow:auto}.summit-screen[hidden]{display:none!important}.summit-card{width:min(760px,100%);max-height:94vh;overflow-y:auto;background:#fffaf0;border:5px solid #dcae55;border-radius:24px;text-align:center;padding:clamp(18px,4vw,45px);box-shadow:0 18px 75px #0009}.summit-burst{font-size:54px;animation:bob 1s ease-in-out infinite alternate}.summit-card h1{font-size:clamp(28px,5vw,48px);color:#235e43;margin:10px 0}.summit-card h2{font-size:clamp(23px,3.5vw,35px);color:#946a1e}.summit-card p{margin:13px 0}.summit-points{font-size:clamp(30px,4vw,45px);color:#216c43;font-weight:900;margin:25px 0}.summit-card button{margin:8px;max-width:100%;padding:14px 20px}@media (prefers-reduced-motion:reduce){.climber,.mountain::after,.floating-sparkles,.fall-sheen,.mist1,.mist2{animation:none!important}}
+
+/* Detailed animated 2D climber and hiking motion */
+.climber{width:88px;height:120px;pointer-events:none;transition:left 2.3s cubic-bezier(.3,.05,.35,1),top 2.3s cubic-bezier(.3,.05,.35,1)!important;animation:none!important;transform:translate(-50%,-52%) scale(.83)!important;transform-origin:center bottom;filter:drop-shadow(1px 5px 3px #16312780)}
+.explorer-svg{height:120px;width:88px;overflow:visible;animation:explorerBounce .48s ease-in-out infinite alternate}.explorer-leg,.explorer-arm{transform-box:fill-box;transform-origin:top center}.leg-back,.arm-front{animation:explorerStride .56s ease-in-out infinite alternate}.leg-front,.arm-back{animation:explorerStride .56s ease-in-out infinite alternate-reverse}@keyframes explorerStride{to{transform:rotate(19deg)}}@keyframes explorerBounce{to{transform:translateY(-5px)}}
+.climber.celebrate .explorer-svg{animation:explorerCelebrate .48s ease-in-out infinite alternate}.climber.celebrate .arm-back,.climber.celebrate .arm-front{animation:explorerCheer .35s ease-in-out infinite alternate}@keyframes explorerCelebrate{to{transform:translateY(-17px) rotate(-3deg)}}@keyframes explorerCheer{to{transform:rotate(-58deg)}}
+@media(prefers-reduced-motion:reduce){.explorer-svg,.explorer-leg,.explorer-arm{animation:none!important}}
+
+/* Animated course guide on the welcome screen */
+.guide-welcome{display:flex;align-items:center;justify-content:center;gap:18px;max-width:640px;margin:10px auto 12px;background:linear-gradient(110deg,#e3f5e8e8,#f9efdae8);border:1px solid #a6d6b2;border-radius:20px;padding:8px 18px;overflow:hidden}
+.guide-avatar{display:block;width:clamp(115px,21vw,175px);height:clamp(130px,23vw,198px);object-fit:contain;object-position:bottom;flex-shrink:0;align-self:flex-end;transform-origin:50% 90%;animation:guideBreathe 3.5s ease-in-out infinite,guideEnter .85s both}
+.guide-speech{max-width:310px;font-size:clamp(14px,2.7vw,18px);font-weight:700;line-height:1.45;color:#22543e;animation:guideEnter .9s .2s both}
+.guide-speech small{display:block;font-size:12px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px;color:#547b64}
+@keyframes guideBreathe{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
+@keyframes guideEnter{from{opacity:0;translate:0 22px}to{opacity:1;translate:0 0}}
+@media(max-width:550px){.guide-welcome{gap:8px;padding:6px 9px}.guide-avatar{width:112px;height:145px}.guide-speech{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.guide-avatar,.guide-speech{animation:none!important}}
+
+/* 2026: game-first responsive layout */
+@media(min-width:960px){
+ .page{max-width:1640px;width:100%;grid-template-columns:minmax(300px,27%) minmax(0,1fr);align-items:start;gap:16px;padding:14px 20px}
+ .mountain{min-height:620px;height:620px}
+ .panel{min-width:0;min-height:620px;padding:clamp(20px,2.3vw,38px)}
+ .panel h1{font-size:clamp(27px,2.5vw,38px)}
+ .board{gap:12px}
+ .tile{min-height:82px}
+ .station{width:min(118px,37%);min-height:66px;padding:5px;border-radius:12px;border-width:2px;box-shadow:0 4px 0 #194d6070,0 5px 12px #06364d30}
+ .station .emoji{font-size:19px}
+ .station .name{font-size:11px;line-height:1.12}
+ .station .num{font-size:9px}
+ .explorer-svg{width:59px!important;height:82px!important}
+ .climber{z-index:4}
+}
+@media(max-width:959px){.page{max-width:100%;grid-template-columns:1fr}.mountain{min-height:390px;height:390px}.panel{min-height:540px}.station{min-height:55px;width:115px;padding:3px}.station .emoji{font-size:17px}.station .name{font-size:10px}.station .num{font-size:9px}.explorer-svg{width:42px!important;height:60px!important}}
+/* Introduction fills the available screen on typical desktop displays. */
+@media(min-width:760px) and (min-height:650px){
+ .welcome:not(.registration){align-items:center;justify-content:center;padding:10px!important}
+ .welcome:not(.registration) .welcome-card{width:min(1050px,96vw);max-height:calc(100dvh - 22px);overflow:hidden;padding:clamp(10px,1.6vh,20px) clamp(19px,2.3vw,28px)}
+ .welcome:not(.registration) .welcome-card .brand img{max-height:62px;width:min(200px,42%)}
+ .welcome:not(.registration) .guide-welcome{margin:5px auto;max-width:720px;min-height:118px;padding:3px 16px}
+ .welcome:not(.registration) .guide-avatar{height:clamp(103px,17vh,145px);width:clamp(108px,16vw,155px)}
+ .welcome:not(.registration) .guide-speech{font-size:clamp(13px,1.8vh,17px)}
+ .welcome:not(.registration) h1{font-size:clamp(23px,3.3vh,33px);margin:5px 0 2px}
+ .welcome:not(.registration) h2{font-size:15px;margin:6px 0 1px}
+ .welcome:not(.registration) p{font-size:clamp(12px,1.8vh,15px);line-height:1.24;margin:2px 0}
+ .welcome:not(.registration) .start{margin-top:8px;padding:10px 22px}
+}
+@media(max-height:649px){.welcome-card{overflow-y:auto!important}}
+.summit-guide{display:flex;justify-content:center;align-items:center;gap:14px;margin:0 auto 6px;max-width:520px}
+.summit-guide img{width:clamp(90px,12vw,155px);height:clamp(105px,15vw,180px);object-fit:contain;animation:guideBreathe 3.5s ease-in-out infinite}
+.summit-guide span{text-align:left;font-weight:750;color:#276349;font-size:clamp(15px,2vw,20px)}
+@media(max-width:520px){.summit-guide img{width:95px;height:108px}.summit-guide span{font-size:14px}}
+
+/* Custom welcome page - compact accessible layout */
+.intro-modern{width:min(1040px,96vw);padding:clamp(12px,2vw,24px);max-height:min(92vh,850px);overflow-y:auto;background:linear-gradient(145deg,#fffef8f9,#f0f8edf7);position:relative}
+.intro-modern:before{content:"";position:absolute;inset:auto -50px -80px 40%;height:180px;background:radial-gradient(ellipse,#afd6c65c,transparent 68%);pointer-events:none}
+.intro-top{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #d4e3d6;padding-bottom:8px}
+.intro-top .upsi-logo{height:clamp(32px,5vh,56px);width:auto;max-width:220px;object-fit:contain}
+.intro-code{font-size:11px;font-weight:900;letter-spacing:.13em;color:#35705b}
+.intro-content{display:grid;grid-template-columns:minmax(170px,.72fr) minmax(0,1.6fr);gap:clamp(10px,2vw,28px);align-items:center}
+.intro-character{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:end;min-width:0}
+.intro-character .guide-avatar{width:min(100%,310px);height:min(50vh,400px);object-fit:contain;object-position:bottom;filter:drop-shadow(0 12px 12px #183f3e38)}
+.intro-bubble{font-size:clamp(11px,1.25vw,14px);font-weight:800;border-radius:15px;background:white;border:2px solid #acd6c3;color:#245640;padding:9px 11px;text-align:center;box-shadow:0 4px 12px #17463014;position:relative;animation:guideEnter .75s both}
+.intro-copy{position:relative;min-width:0}
+.intro-kicker{letter-spacing:.14em;color:#347457;font-size:11px;font-weight:900}
+.intro-modern h1{text-align:left;font-size:clamp(26px,3vw,43px);line-height:1.06;margin:8px 0;color:#234a38}
+.intro-modern h1 em{font-style:normal;color:#b47e34}
+.intro-lead{font-size:clamp(13px,1.5vw,17px);color:#446b56;font-weight:750;margin:5px 0 10px}
+.intro-aim{border-left:4px solid #3f9470;padding:8px 12px;border-radius:9px;background:#e7f3e8;margin-bottom:11px;color:#244a37;font-size:13px}
+.intro-aim p{font-size:clamp(11px,1.3vw,13px);line-height:1.43;margin:4px 0 0}
+.intro-how>strong{font-size:13px;color:#244a37}
+.intro-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:6px 0 9px}
+.intro-steps span{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;border:1px solid #d5e5d8;border-radius:9px;padding:6px;background:#fff}
+.intro-steps b{display:grid;place-items:center;border-radius:50%;background:#2c785c;color:#fff;min-width:22px;height:22px;font-size:11px}
+.intro-author{font-size:11px;color:#546659;line-height:1.4;margin:7px 0 9px}
+.intro-modern #beginJourney{padding:11px 14px;width:100%;font-size:15px;border-radius:12px}
+@media(max-width:650px){.intro-modern{max-height:94dvh;overflow-y:auto}.intro-content{grid-template-columns:1fr}.intro-character{flex-direction:row;justify-content:center;gap:8px}.intro-character .guide-avatar{width:110px;height:140px}.intro-bubble{max-width:180px}.intro-modern h1{font-size:29px}.intro-aim p{font-size:12px}}
+@media(min-width:760px) and (max-height:760px){.intro-character .guide-avatar{height:38vh}.intro-modern{padding:12px 22px}.intro-aim{padding:6px 10px}.intro-steps span{padding:4px}}
+
+/* Full-screen game layout: the game scrolls internally, never the entire page. */
+html,body{height:100%;overflow:hidden}
+body{height:100dvh;display:flex;flex-direction:column}
+body>header{flex:0 0 auto;padding:7px 16px;min-height:53px}
+body>.page{flex:1 1 auto;min-height:0;width:100%;max-width:1500px;padding:9px 12px;gap:12px;grid-template-columns:minmax(230px,26%) minmax(0,1fr);align-items:stretch;overflow:hidden}
+body>.page>.mountain{min-height:0!important;height:100%!important;max-height:100%;border-radius:16px}
+body>.page>.panel{min-height:0!important;height:100%;max-height:100%;overflow-y:auto;overscroll-behavior:contain;padding:clamp(12px,1.6vw,24px)}
+body>.game-footer{flex:0 0 auto;padding:5px 15px;min-height:34px}
+body>.game-footer img{max-height:27px!important}
+.panel .gamearea{max-width:100%}
+.panel .board{gap:8px}
+.panel .tile{min-height:60px;padding:8px;font-size:clamp(10px,1.1vw,14px)}
+.panel h1{margin:6px 0;font-size:clamp(23px,2vw,34px)}
+.panel>.muted{font-size:13px;margin:4px 0 10px}
+.panel .fruits{height:min(390px,49vh)!important}
+.welcome,.registration,.summit-screen{overflow:hidden!important}
+.welcome-card,.intro-modern,.summit-card{max-height:calc(100dvh - 24px)!important;overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:760px){body>.page{grid-template-columns:1fr;grid-template-rows:clamp(125px,23dvh,180px) minmax(0,1fr);gap:7px;padding:6px}body>.page>.mountain{height:100%!important;min-height:0!important}body>.page>.panel{min-height:0!important}.station{min-height:40px!important;width:90px!important;padding:2px!important}.station .name{font-size:9px!important}.station .emoji{font-size:13px!important}.station .num{font-size:8px!important}.explorer-svg{width:31px!important;height:44px!important}.game-footer{font-size:10px}.panel .tile{min-height:51px}}
+@media(max-height:650px){body>header{min-height:43px;padding:4px 10px}.panel .tile{min-height:48px}.panel .fruits{height:235px!important}}
+
+/* The explorer follows the switchback trail, stopping to the side of checkpoint labels. */
+.mountain .climb-route{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.climb-route path{fill:none;stroke:#fff0be;stroke-width:0.65;stroke-dasharray:0.55 1.25;stroke-linecap:round;opacity:.93;filter:drop-shadow(0 0.13px .23px #3b3927)}
+.mountain .climber{z-index:5!important;left:9%;top:89%;transition:none!important;will-change:left,top}
+.climber.hiking .explorer-leg.leg-back{animation:climbStepBack .38s ease-in-out infinite alternate}
+.climber.hiking .explorer-leg.leg-front{animation:climbStepFront .38s ease-in-out infinite alternate}
+.climber.hiking .explorer-arm.arm-front{animation:climbStepFront .38s ease-in-out infinite alternate}
+.climber.hiking .explorer-arm.arm-back{animation:climbStepBack .38s ease-in-out infinite alternate}
+.climber.hiking .explorer-svg{animation:climbBob .23s ease-in-out infinite alternate}
+@keyframes climbStepBack{to{transform:rotate(-13deg)}}
+@keyframes climbStepFront{to{transform:rotate(13deg)}}
+@keyframes climbBob{to{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.climber.hiking .explorer-svg,.climber.hiking .explorer-leg,.climber.hiking .explorer-arm{animation:none!important}}
+
+/* Congkak is a full-width mini-game: optimise the available game viewport. */
+@media(min-width:860px){body.congkak-active .page{grid-template-columns:minmax(200px,25%) minmax(0,1fr)}body.congkak-active .mountain{min-height:520px}body.congkak-active .panel{min-width:0}}
+@media(max-width:859px){body.congkak-active #congkakFrame{height:min(72vh,680px)}}
+
+/* Congkak integrated: visually consistent with the main five mini-games. */
+body.congkak-active .gamearea{display:flex;flex-direction:column;min-height:0;gap:6px}
+body.congkak-active .congkak-help{margin:3px 0 6px!important;font-size:clamp(12px,1vw,14px);line-height:1.4}
+body.congkak-active .congkak-frame-shell{min-height:400px;height:clamp(430px,70dvh,760px);flex:1;border:2px solid #bfdcde;border-radius:14px;background:#f6fbfa;overflow:hidden}
+body.congkak-active #congkakFrame{width:100%;height:100%;display:block;border:0;background:transparent}
+body.congkak-active .panel{background:#fff}
+@media (max-height:750px){body.congkak-active .congkak-frame-shell{height:clamp(400px,66dvh,680px)}}
+@media (max-width:760px){body.congkak-active .congkak-frame-shell{height:clamp(420px,69dvh,650px)}}
+
+/* Build the Practitioner — prominent question and smaller illustration */
+#gamearea:has(.figure) #hint{
+  font-size:clamp(19px,2.1vw,26px)!important;
+  font-weight:850!important;
+  color:#153f58;
+  line-height:1.35;
+  background:#e4f3fa;
+  border:2px solid #72b7ce;
+  border-radius:14px;
+  padding:14px 18px;
+  margin:11px 0;
+  text-wrap:pretty;
+}
+#gamearea:has(.figure) .figure{
+  width:130px!important;
+  height:116px!important;
+  max-width:28%;
+  object-fit:contain;
+  margin:5px auto;
+  background:#ecf7fb;
+}
+#gamearea:has(.figure) .hangword{font-size:clamp(23px,2.5vw,32px);margin:9px 0}
+@media (max-height:680px){
+  #gamearea:has(.figure) #hint{padding:9px 12px;font-size:20px!important;margin:6px 0}
+  #gamearea:has(.figure) .figure{width:100px!important;height:88px!important}
+}
+
+/* Native Congkak: all gameplay is visible inside the same panel as other mini-games. */
+body.congkak-active .congkak-frame-shell{display:none!important}
+.cg-wrap{display:flex;flex-direction:column;gap:10px;width:100%;font-size:14px}
+.cg-stats{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-weight:700;color:#244f52;font-size:clamp(11px,1vw,14px)}
+.cg-stats span{background:#eef8f5;border-radius:9px;padding:6px 9px}
+.cg-board{position:relative;display:grid;grid-template-columns:65px minmax(0,1fr) 65px;align-items:center;gap:9px;padding:12px;border-radius:80px;background:linear-gradient(155deg,#c58e50,#865028);border:3px solid #59371b;box-shadow:inset 0 4px 9px #f8c48188,0 5px 0 #5a3720;color:#fff;min-height:136px}
+.cg-pits{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
+.cg-pit{height:107px;padding:5px 2px!important;display:flex;flex-direction:column;align-items:center;justify-content:space-between;border-radius:28px!important;background:radial-gradient(ellipse at center,#56331a,#30180d)!important;border:2px solid #e9bc77!important;color:#fff!important;min-width:0;box-shadow:inset 0 3px 9px #0008}
+.cg-pit.cg-selected{outline:4px solid #ffe7a5;outline-offset:0}
+.cg-pit:disabled{opacity:.50}
+.cg-hole-number{font-size:21px;font-weight:900;line-height:1}
+.cg-seeds{font-size:10px;line-height:1.1;color:#ffc760;min-height:20px;max-height:26px;overflow:hidden}
+.cg-name{font-size:clamp(9px,.76vw,12px);font-weight:800;line-height:1.12;overflow-wrap:anywhere}
+.cg-left{font-size:9px;opacity:.85}
+.cg-store{height:96px;border-radius:50%;background:radial-gradient(ellipse,#42240f,#241007);display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:inset 0 4px 8px #0009}
+.cg-store strong{font:800 30px Georgia,serif}
+.cg-store small{font-size:9px;text-align:center}
+.cg-fly-layer{position:absolute;inset:0;pointer-events:none;z-index:20}
+.cg-flying-seed{position:absolute;width:12px;height:12px;background:radial-gradient(circle at 30% 25%,#ffeca6,#d99a2e 75%,#855019);border-radius:50%;box-shadow:0 2px 3px #30180d99;transition:transform 225ms ease-in-out}
+.cg-question{border:2px solid #b7dfe7;background:#f9fdfc;padding:12px 15px;border-radius:14px;display:flex;flex-direction:column;gap:9px;color:#193e43}
+.cg-question h3{font-size:19px;margin:0}.cg-question p{margin:0}
+.cg-qhead{display:flex;align-items:center;justify-content:space-between;gap:6px;color:#1e6d67}.cg-qhead strong{font-size:18px}
+.cg-prompt{font-size:clamp(15px,1.3vw,19px);font-weight:700;line-height:1.32}
+.cg-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.cg-choice{background:#ebf4f2!important;color:#203e3c!important;border:2px solid #c4ded9!important;border-radius:9px!important;text-align:left;font-size:clamp(12px,1.05vw,15px);font-weight:500;line-height:1.27;padding:10px 12px!important}
+.cg-choice.cg-right{background:#c5efd6!important;border-color:#299b65!important}.cg-choice.cg-wrong{background:#f8d6cd!important;border-color:#c15347!important}
+.cg-feedback{background:#e5f5ea;border-left:5px solid #389c6b;padding:8px;border-radius:6px;line-height:1.3}.cg-next{color:#54716c;font-style:italic}
+@media(max-width:760px){.cg-board{grid-template-columns:40px minmax(0,1fr) 40px;gap:3px;padding:6px;min-height:110px}.cg-pit{height:100px}.cg-store{height:75px}.cg-store strong{font-size:22px}.cg-store small{font-size:8px}.cg-choices{grid-template-columns:1fr}.cg-question{padding:8px}.cg-choice{padding:7px!important}}
+
+/* Pedagogical captions and portrait-led reflections */
+.ethics-context{background:#eff8f3;border-left:4px solid #5b9c77;color:#265941;border-radius:8px;padding:8px 12px;margin:7px 0;font-size:clamp(12px,1.2vw,15px);line-height:1.45}
+.stage-about{margin:5px 0!important;font-size:clamp(13px,1.35vw,16px)}
+.stage-finish{text-align:center;max-width:830px;margin:12px auto;display:flex;flex-direction:column;align-items:center;gap:8px}
+.stage-finish h2{margin:2px 0;font-size:clamp(21px,3vw,29px);color:#215d43}
+.stage-finish p{margin:2px 0}.stage-finish .finish-icon{font-size:34px}.finish-score{font-weight:800;color:#267048;font-size:19px}
+.ethics-guide{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:780px;margin:10px auto}
+.ethics-guide img{height:clamp(95px,18vh,155px);width:clamp(80px,13vw,120px);object-fit:contain;flex-shrink:0;align-self:flex-end}
+.ethics-bubble{position:relative;flex:1;text-align:left;background:#f6fff9;border:2px solid #a2d0ad;border-radius:18px;padding:12px 16px;color:#28563e;font-size:clamp(13px,1.3vw,17px);line-height:1.48}
+.ethics-bubble::before{content:"";position:absolute;left:-10px;bottom:20px;width:15px;height:15px;transform:rotate(45deg);background:#f6fff9;border-left:2px solid #a2d0ad;border-bottom:2px solid #a2d0ad}
+.ethics-bubble strong{display:block;margin-bottom:3px}.ethics-bubble p{margin:0!important}
+.summit-last-lesson .ethics-guide{max-width:610px;margin:5px auto}.summit-last-lesson .ethics-guide img{height:90px;width:72px}.summit-last-lesson .ethics-bubble{font-size:13px;padding:9px 12px}
+.solo-embed{width:100%;border:2px solid #bddacb;border-radius:14px;overflow:hidden;background:#f9fbf5;min-height:460px;height:clamp(470px,66vh,700px)}
+.solo-embed iframe{display:block;border:0;background:#fff;width:100%;height:100%}
+body.congkak-active .gamearea{gap:6px}
+body.congkak-active .panel{min-width:0}
+@media(max-width:650px){.ethics-guide{gap:6px}.ethics-guide img{width:75px;height:95px}.ethics-bubble{font-size:12px;padding:9px}.solo-embed{height:clamp(460px,72vh,650px)}}
+</style><style id="github-layout-fixes">
+@media(min-width:780px){
+  #welcome{padding:12px;overflow:hidden}
+  #welcome .intro-modern{width:min(980px,96vw);max-height:calc(100dvh - 24px);overflow:hidden;padding:clamp(12px,2vh,22px)}
+  #welcome .intro-content{grid-template-columns:minmax(150px,.64fr) minmax(0,1.6fr);gap:20px}
+  #welcome .intro-character .guide-avatar{width:100%;height:min(47dvh,360px);object-fit:contain}
+  #welcome .intro-modern h1{font-size:clamp(26px,3vw,39px)}
+  #welcome .intro-aim p{line-height:1.3}
+  #summit .summit-card{width:min(790px,96vw);padding:16px 28px;max-height:calc(100dvh - 25px);overflow-y:auto}
+  #summit .summit-guide img{height:clamp(110px,21vh,180px);width:clamp(100px,15vw,160px)}
+  #summit .summit-burst{font-size:32px}
+  #summit .summit-card h1{font-size:clamp(25px,3.2vw,38px);margin:5px 0}
+  #summit .summit-card h2{font-size:22px;margin:3px 0}
+  #summit .summit-points{margin:12px 0;font-size:34px}
+  #summit .summit-card p{margin:6px 0}
+  #summit .summit-card button{margin:4px;padding:11px 14px}
+}
+@media(max-width:779px){#welcome .intro-modern{overflow-y:auto;max-height:95dvh}#welcome .intro-character .guide-avatar{max-height:180px}}
+
+/* True no-scroll gameplay: dynamically fit every activity in the available viewport. */
+html,body{overflow:hidden!important;height:100%;overscroll-behavior:none}
+body>.page>.panel{overflow:hidden!important;position:relative;padding:clamp(8px,1.0vw,16px)!important}
+#panel .fitted-content{position:relative;transform-origin:0 0;will-change:transform}
+#panel .instructions{margin:7px 0;padding:8px 10px;line-height:1.3}
+#panel .gamearea{margin-top:8px}
+#panel .board{margin:8px 0;gap:6px}
+#panel .tile{min-height:clamp(35px,6.5vh,63px)!important;padding:5px}
+#panel .slot{min-height:32px;margin:4px 0;padding:5px}
+#panel .fruitinfo{margin:6px 0}
+#panel .fruits{height:clamp(160px,42dvh,350px)!important}
+#panel .memory{height:clamp(49px,10dvh,90px)!important}
+#panel .cards{gap:6px}
+#panel .figure{height:clamp(105px,22dvh,175px)}
+#panel .hangword{margin:7px 0}
+#panel .actions{margin-top:8px}
+#panel .note{margin-top:8px;padding-top:6px}
+#panel .feedback{padding:8px;margin-top:7px;line-height:1.3}
+#panel h1{margin:3px 0 5px;font-size:clamp(21px,2vw,30px)}
+#panel .alphabet button{padding:5px 2px}
+#panel .fitted-content > .muted{margin:2px 0 5px}
+@media(max-width:760px){body>.page{grid-template-rows:clamp(95px,17dvh,132px) minmax(0,1fr)!important}body>.page>.panel{padding:7px!important}.game-footer{padding:3px 5px!important}.game-footer img{max-height:21px!important}}
+
+/* --- Polishing update: medium text, clearer guide images, stronger summit layout --- */
+body{font-size:17px}
+.panel{padding:24px}.panel h1{font-size:34px}.panel p,.instructions,.note,.muted,.stage-about,.ethics-context,.small{font-size:16px;line-height:1.5}.tag{font-size:13px}.pill{font-size:15px}.tile,.chip,.alphabet button,.memory-card,.answer,.case-card h2,.slot,.fruitcard{font-size:16px}.case-card h2{font-size:1.25rem!important}.instructions{padding:14px 16px}.ethics-context{background:#edf5ef;border-left:4px solid #5ca982;border-radius:12px;padding:12px 14px;margin:10px 0 14px;color:#285343}.stage-finish h2{font-size:32px;margin:6px 0 10px}.stage-finish p{font-size:17px}.ethics-guide{display:grid;grid-template-columns:160px 1fr;gap:14px;align-items:center;margin:14px 0}.ethics-guide img{width:150px;max-width:100%;height:auto;display:block}.ethics-bubble{font-size:16px;line-height:1.5;background:#f4fbf5;border:2px solid #96cca7;border-radius:24px;padding:16px 18px}.ethics-bubble strong{font-size:18px;display:block;margin-bottom:4px}.summit-card{max-width:980px;padding:28px 30px 28px}.summit-header-row{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:8px}.summit-logo{height:56px;width:auto;object-fit:contain}.summit-lecturer{display:flex;flex-direction:column;gap:3px;text-align:left;color:#285343}.summit-lecturer strong{font-size:20px}.summit-lecturer span{font-size:14px}.summit-guide{display:flex;align-items:center;justify-content:center;gap:16px;margin:6px 0 10px}.summit-guide .guide-avatar{width:170px;height:auto}.summit-guide span{font-size:30px;font-weight:800;color:#22624c}.summit-card h1{font-size:58px;line-height:1.06;margin:8px 0 10px}.summit-sub{font-size:23px;line-height:1.35;max-width:760px;margin:0 auto 16px}.summit-points{font-size:54px;font-weight:900;color:#257153;margin:12px 0}.summit-meta{font-size:22px;margin:0 0 16px}.summit-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.summit-buttons button{font-size:18px;padding:14px 18px}.summit-last-lesson{display:none}.welcome-card{max-width:980px;padding:24px}.welcome-card h1{font-size:42px}.welcome-card .subtitle,.welcome-card p,.welcome-card li,label,input{font-size:17px}#registerForm label{font-size:16px}.guide-avatar{image-rendering:auto}.solo-embed iframe{height:760px;border:0;border-radius:16px;width:100%;background:#fff}.gamearea{overflow:visible}
+@media (max-width:900px){.ethics-guide{grid-template-columns:1fr}.ethics-guide img{width:130px}.summit-card h1{font-size:42px}.summit-sub{font-size:19px}.summit-points{font-size:40px}.summit-meta{font-size:18px}.solo-embed iframe{height:980px}}
+
+/* Navigation repair: use natural, accessible page scrolling, never shrink active content. */
+html,body{height:auto!important;min-height:100%!important;overflow-x:hidden!important;overflow-y:auto!important}
+body{display:block!important;min-height:100vh!important}
+body>.page{display:grid!important;overflow:visible!important;height:auto!important;min-height:620px!important;max-height:none!important;grid-template-columns:minmax(250px,31%) minmax(0,1fr)!important;align-items:start!important;padding:14px!important}
+.panel{height:auto!important;max-height:none!important;min-height:590px!important;overflow:visible!important;transform:none!important}
+.panel .fitted-content{transform:none!important;width:auto!important;height:auto!important}
+.panel .gamearea{overflow:visible!important;height:auto!important;max-height:none!important}
+.solo-embed{overflow:visible!important;height:auto!important;max-height:none!important}
+.solo-embed iframe{min-height:790px!important;height:790px!important;overflow:auto!important}
+.welcome,.registration,.summit-screen{overflow-y:auto!important;overflow-x:hidden!important}
+.welcome-card,.reg-card,.summit-card{max-height:none!important;overflow:visible!important}
+.ethics-guide img{object-fit:contain!important;image-rendering:auto!important}
+.stage-finish{overflow:visible!important}
+@media(max-width:900px){body>.page{grid-template-columns:1fr!important}.mountain{min-height:460px!important}.panel{min-height:500px!important}.solo-embed iframe{height:1080px!important}}
+
+/* Navigation accessibility hotfix */
+.stage-nav{display:flex;justify-content:flex-start;gap:10px;flex-wrap:wrap;margin:12px 0}
+.stage-nav:empty{display:none}
+.stage-nav button{border:1px solid #a3bfac;border-radius:12px;padding:12px 17px;min-height:45px;font-size:16px;font-weight:750;background:#2f7658;color:white;cursor:pointer}
+.stage-nav button.alt{background:#f1eee3;color:#275440}
+.panel{scroll-margin-top:100px;overflow:visible!important;max-height:none!important}
+.gamearea{overflow:visible!important;max-height:none!important}
+.page{overflow:visible!important;max-height:none!important}
+#registerForm button[type=submit],#beginJourney,.stage-finish button{min-height:50px;cursor:pointer}
+
+/* Four-column genuine Bingo, with a stationary card and visible winning line */
+.real-bingo{border:3px solid #b48a40;border-radius:15px;padding:10px;background:#fff5dc;margin:12px 0}
+.real-bingo .bingo-heading{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center;font-weight:900;font-size:28px;color:#76501e;letter-spacing:.04em}
+.real-bingo #bingoboard{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;margin:6px 0!important}
+.real-bingo .tile{font-size:clamp(12px,1.2vw,16px)!important;min-height:70px!important;padding:8px 3px!important;overflow-wrap:anywhere;border-radius:9px}
+.real-bingo .tile.found{background:#c8edcf!important;color:#1c6044!important;border-color:#3c976c!important;opacity:1!important}
+.real-bingo .tile.found::after{content:' ✓';font-weight:900}
+.real-bingo .tile.bingo-win{background:#ffe58e!important;color:#704513!important;border:3px solid #ca8b20!important;box-shadow:inset 0 0 0 2px #fff5cb}
+#bingoCase{font-size:19px!important;line-height:1.45!important}
+@media(max-width:550px){.real-bingo .tile{font-size:11px!important;min-height:62px!important}.real-bingo .bingo-heading{font-size:21px}}
+</style><style id="case-files-style">
+.case-game{max-width:920px;margin:0 auto}.case-progress{display:flex;justify-content:space-between;font-weight:800;color:#22583f;margin:13px 0}.case-track{display:flex;gap:8px;margin:0 0 15px}.case-dot{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border-radius:50%;background:#e3e8e5;border:2px solid #b9c8c0;font-weight:800;color:#52665c}.case-dot.current{background:#256c50;color:white;border-color:#256c50}.case-dot.solved{background:#ccefdc;border-color:#4baf77;color:#165536}.case-dot.missed{background:#fff0e7;border-color:#db8b64;color:#8d412c}.case-document{background:#fffdf6;border:2px solid #cfb68a;border-radius:16px;padding:clamp(14px,2.8vw,28px);box-shadow:0 8px 20px #42320c12}.case-header{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;border-bottom:2px solid #e6d6b7;padding-bottom:12px;color:#6c4c24;font-size:13px;letter-spacing:.05em}.case-header strong{font-size:16px;color:#274b3d}.case-document h2{color:#184a3a;margin:17px 0 8px}.case-prompt{font-size:clamp(17px,1.8vw,21px);line-height:1.6;font-weight:650;color:#253a31}.case-options{display:grid;gap:10px;margin-top:17px}.case-choice{display:flex;align-items:flex-start;gap:13px;width:100%;padding:13px;text-align:left;color:#203c2d;background:#fff;border:2px solid #c8dbcf;border-radius:11px;font-size:clamp(14px,1.2vw,17px);line-height:1.45;cursor:pointer}.case-choice:hover:not(:disabled){background:#eaf6ef;border-color:#3d9670}.case-choice.correct{background:#d9f7e7;border-color:#339a67}.case-choice.incorrect{background:#ffeded;border-color:#c95c5c}.case-choice:disabled{cursor:default}.case-letter{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:8px;background:#235b48;color:white;font-weight:900}.case-feedback{margin-top:18px;padding:16px;background:#edf5f1;border-radius:12px;border-left:5px solid #267651}.case-feedback p{line-height:1.5}.case-feedback button,.case-end button{margin-top:10px;padding:12px 18px;background:#245f49;color:white;border:0;border-radius:10px;font-weight:750;cursor:pointer}.case-end{border:2px solid #9dc9b2;border-radius:15px;background:#f3faf5;padding:22px}.case-stamp{font-weight:900;color:#236447;letter-spacing:.06em}.case-evidence{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px}.case-evidence div{padding:10px;border-radius:9px;background:white;border:1px solid #cce1d3}
+</style><style>
+.word-reveal[hidden]{display:none!important}.word-reveal{margin:20px 0;padding:22px;background:#eaf8ef;border:2px solid #58a97c;border-radius:16px;text-align:center}.word-reveal .word-answer{font-size:clamp(24px,4vw,36px);font-weight:900;letter-spacing:.08em;color:#155b45}.word-reveal button{margin-top:8px}.ethics-wheel-wrap{width:min(340px,80vw);height:min(340px,80vw);position:relative;margin:20px auto 8px}.ethics-wheel{width:100%;height:100%;border-radius:50%;border:9px solid #fff;box-shadow:0 6px 22px #0003;position:relative;overflow:hidden;background:conic-gradient(#64bc98 0deg 60deg,#ffdb88 60deg 120deg,#97cae9 120deg 180deg,#e7a9cb 180deg 240deg,#bfb4f4 240deg 300deg,#ffa98b 300deg 360deg);transition:transform 1.6s cubic-bezier(.13,.7,.13,1)}.wheel-label{position:absolute;inset:0;transform:rotate(calc(var(--i)*60deg));text-align:center;padding-top:12%;font-weight:800;color:#163c35;font-size:clamp(10px,2vw,13px);pointer-events:none}.wheel-label span{display:inline-block;max-width:85px;transform:rotate(calc(var(--i)*-60deg));text-shadow:0 1px #fff9}.wheel-pointer{position:absolute;left:50%;top:-17px;transform:translateX(-50%);z-index:2;font-size:36px;color:#a33c37;text-shadow:0 2px white}.wheel-announcement{text-align:center;font-weight:750;color:#245545}.case-game .actions{text-align:center}.case-game .actions button{font-size:18px}
+</style></head><body><header><div class="brandrow"><img class="logo" src="https://www.upsi.edu.my/wp-content/uploads/2025/07/Logo-UPSI-2018-Confirm-With-Stroke.png" alt="UPSI official logo"><div><div class="tag">KSG3613 · Psychology ethics</div><strong>⛰ Ethics Summit: The Mountain Quest</strong></div></div><div class="stats"><span class="pill" id="score">⭐ 0 points</span><span class="pill" id="stage">🥾 Stage 1 / 6</span><button class="alt" id="reset">Reset journey</button></div></header><div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="welcome-card intro-modern">
+    <div class="intro-top"><img class="upsi-logo" src="https://www.upsi.edu.my/wp-content/uploads/2025/07/Logo-UPSI-2018-Confirm-With-Stroke.png" alt="Universiti Pendidikan Sultan Idris logo"><span class="intro-code">KSG3613 · PSYCHOLOGY ETHICS</span></div>
+    <div class="intro-content">
+      <div class="intro-character"><img class="guide-avatar" src="author-portrait.png" alt="Illustrated portrait of Dr. Priyalatha Govindasamy"><div class="intro-bubble">Welcome, explorer! Ready to conquer the ethics summit?</div></div>
+      <div class="intro-copy">
+        <span class="intro-kicker">A 2D LEARNING ADVENTURE</span>
+        <h1 id="welcomeTitle">Ethics Summit:<br><em>The Mountain Quest</em></h1>
+        <p class="intro-lead">Think ethically. Solve challenges. Reach the summit.</p>
+        <div class="intro-aim"><strong>🎯 Aim of the game</strong><p>Apply ethical principles, professional competence, confidentiality and informed consent through six progressively challenging mini-games. Strengthen ethical judgement by practising, learning from feedback and revisiting your notes when needed.</p></div>
+        <div class="intro-how"><strong>How to play</strong><div class="intro-steps"><span><b>1</b> Register</span><span><b>2</b> Solve six challenges</span><span><b>3</b> Review &amp; retry</span><span><b>4</b> Earn your certificate</span></div></div>
+        <p class="intro-author">Created by <strong>Dr. Priyalatha Govindasamy</strong><br>Department of Psychology · Faculty of Human Development · UPSI</p>
+        <button class="start" id="beginJourney" type="button">Begin the Mountain Quest →</button>
+      </div>
+    </div>
+  </div>
+</div><div class="registration welcome" id="registration" role="dialog" aria-modal="true" aria-labelledby="regTitle" hidden><div class="welcome-card reg-card"><div class="tag">STEP 2 · STUDENT REGISTRATION</div><h1 id="regTitle">Register Your Expedition</h1><p class="subtitle">Your details will appear on your summit certificate.</p><form id="registerForm"><label>Full name<input id="studentName" required autocomplete="name" maxlength="100" placeholder="Name as it should appear on certificate"></label><label>Matric ID<input id="studentMatric" required maxlength="35" placeholder="Student matric number"></label><label>Group<input id="studentGroup" required maxlength="45" placeholder="Class / group"></label><p class="small muted">Details remain in this open game session only, and appear on your downloaded certificate. Reloading clears them. They are not submitted to UPSI.</p><button class="start" type="submit">Register & Start Climbing →</button></form></div></div><main class="page"><section class="mountain" aria-label="Mountain stage map"><div class="atmosphere mist1"></div><div class="atmosphere mist2"></div><div class="fall-sheen fall1"></div><div class="fall-sheen fall2"></div><div class="floating-sparkles" aria-hidden="true">✦ &nbsp; ✧ &nbsp; ✦</div><svg class="old-map-art" viewBox="0 0 680 680" preserveAspectRatio="none" aria-hidden="true"><path d="M0 400 L175 185 250 284 360 48 502 287 581 161 680 360 680 680 0 680Z" fill="#719aa5"/><path d="M0 440 L175 185 250 284 360 48 502 287 581 161 680 390 680 680 0 680Z" fill="#6b9b93"/><path d="M270 166 L360 48 438 168 396 157 361 185 332 143Z" fill="#fffefa"/><path d="M130 264 L175 185 221 269 188 256 172 281Z" fill="#e9f9f7"/><path d="M540 235 L581 161 615 232 595 219 576 242Z" fill="#fff"/><path d="M0 515 Q180 450 270 540 T680 488 L680 680 0 680Z" fill="#5eab83"/><path d="M0 585 Q190 525 350 595 T680 551 L680 680 0 680Z" fill="#3f946c"/><path class="trail" d="M102 575 Q235 550 222 493 T438 421 Q530 363 379 312 T255 225 Q290 167 348 111"/></svg><div class="peak">🏁<div style="font-size:12px">ETHICS SUMMIT</div></div><svg class="climb-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M 9 89 L 9 84 Q 15 79 29 78 T 45 73 Q 49 67 55 65 T 57 56 Q 52 49 48 37 Q 50 28 61 23 Q 65 13 62 8"/></svg><div id="stations"></div><div class="climber" id="climber" aria-label="Animated mountain climber"><svg class="explorer-svg" viewBox="0 0 105 145" role="img" aria-label="Hiker in a red jacket with a backpack, moving arms and legs"><defs><linearGradient id="jacketGradient" x2="1" y2="1"><stop stop-color="#fc7751"/><stop offset="1" stop-color="#a83d35"/></linearGradient></defs><ellipse cx="51" cy="139" rx="27" ry="5" fill="#14342b" opacity=".25"/><g class="explorer-leg leg-back"><path d="M57 92 L72 115 L82 134" stroke="#334a53" stroke-width="13" stroke-linecap="round" fill="none"/><path d="M77 134h17" stroke="#3a2c27" stroke-width="11" stroke-linecap="round"/></g><g class="explorer-leg leg-front"><path d="M46 92 L37 113 L33 134" stroke="#455665" stroke-width="14" stroke-linecap="round" fill="none"/><path d="M28 134h18" stroke="#3a2c27" stroke-width="11" stroke-linecap="round"/></g><rect x="59" y="50" width="24" height="43" rx="9" fill="#356a69" stroke="#1e4742" stroke-width="3"/><g class="explorer-arm arm-back"><path d="M68 57 L83 73 L90 57" stroke="#b84932" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="90" cy="57" r="6" fill="#e8b183"/></g><path d="M37 52 Q51 44 66 53 L69 91 Q51 100 36 92Z" fill="url(#jacketGradient)" stroke="#8c3932" stroke-width="2"/><path d="M55 57L63 86" stroke="#f3ce75" stroke-width="5"/><g class="explorer-arm arm-front"><path d="M40 58 L27 75 L38 85" stroke="#d95d43" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="38" cy="85" r="6" fill="#e8b183"/></g><path d="M49 47v10" stroke="#e8b183" stroke-width="9"/><ellipse cx="51" cy="29" rx="19" ry="21" fill="#e7aa79"/><path d="M33 26 Q33 7 51 10 Q73 10 70 31 L65 22 Q52 29 38 22Z" fill="#40312a"/><circle cx="45" cy="32" r="2.1" fill="#25262b"/><circle cx="58" cy="32" r="2.1" fill="#25262b"/><path d="M47 40q5 4 10 0" stroke="#a25b44" stroke-width="2" fill="none"/><path d="M26 19Q33 2 54 3Q76 5 79 19Z" fill="#e3ad45" stroke="#84582c" stroke-width="2"/><path d="M22 20Q51 26 82 20" stroke="#a87330" stroke-width="6" stroke-linecap="round"/><path d="M77 68 L99 117" stroke="#79573a" stroke-width="4" stroke-linecap="round"/></svg></div></section><section class="panel" id="panel" aria-live="polite"></section></main><footer class="game-footer"><img src="https://www.upsi.edu.my/wp-content/uploads/2025/07/Logo-UPSI-2018-Confirm-With-Stroke.png" alt="UPSI logo"><span><strong>Ethics Summit · KSG3613</strong><br>Developed by Dr. Priyalatha Govindasamy · Department of Psychology · UPSI</span><button class="alt" id="instructionsAgain" type="button">Instructions</button></footer><div class="summit-screen" id="summit" hidden role="dialog" aria-modal="true" aria-labelledby="summitTitle"><div class="summit-card"><div class="summit-header-row"><img class="summit-logo" src="https://www.upsi.edu.my/wp-content/uploads/2025/07/Logo-UPSI-2018-Confirm-With-Stroke.png" alt="UPSI logo"><div class="summit-lecturer"><strong>Dr. Priyalatha Govindasamy</strong><span>Department of Psychology · Faculty of Human Development · UPSI</span></div></div><div class="summit-guide"><img class="guide-avatar" src="author-portrait.png" alt="Portrait of Dr. Priyalatha Govindasamy"><span>Summit complete</span></div><p class="tag">THE PEAK · ETHICS SUMMIT</p><h1 id="summitTitle">You reached the summit, <span id="summitName"></span>!</h1><p class="summit-sub">We hope this adventure helped you strengthen your ethical knowledge and judgement.</p><div class="summit-points" id="summitScore"></div><p class="summit-meta">Matric ID: <strong id="summitMatric"></strong> · Group: <strong id="summitGroup"></strong></p><div class="summit-buttons"><button id="downloadCertificate">⬇ Download Certificate of Completion (PNG)</button><button class="alt" id="returnToMap">View my completed mountain →</button><button class="alt" id="newExpedition">Start a new student journey</button></div><p class="small muted">This is a game-generated completion certificate, not an independently verified university qualification.</p></div></div><div class="confetti" id="confetti"></div><script>
+
+'use strict';
+const BOOK='https://priyalathaupsi.github.io/KSG3613_Ethics_Book/';
+// Single-page course book: topic fragments are editable here if the book's HTML anchors change.
+const TOPIC_LINKS=[BOOK+'#ch1',BOOK+'#ch2',BOOK+'#ch3',BOOK+'#ch4',BOOK+'#ch4',BOOK+'#ch4'];
+const TOPIC_NAMES=['Introduction to Ethics','Ten Step Ethical Decision Model','Professional Competence','Confidentiality','Professional Responsibility','Informed Consent'];
+function readingLink(i){return TOPIC_LINKS[Math.max(0,Math.min(5,i))]}
+
+const stages=[{title:'Introduction to Ethics',game:'Ethics Bingo',icon:'🔎',x:'22%',y:'84%'},{title:'Ten Step Model',game:'Jigsaw Order',icon:'🧩',x:'67%',y:'73%'},{title:'Professional Competence',game:'Build the Practitioner',icon:'🧍',x:'80%',y:'56%'},{title:'Confidentiality',game:'Confidentiality Streak',icon:'⚡',x:'73%',y:'37%'},{title:'Professional Responsibility',game:'Ethics Spin the Wheel',icon:'🎡',x:'85%',y:'23%'},{title:'Informed Consent',game:'Consent Match',icon:'🃏',x:'64%',y:'14%'}];
+
+const STAGE_LESSONS=[
+ {short:'Ethics Bingo',description:'A principle-spotting challenge. Read a short situation and identify the ethical principle behind it.',link:'Bingo helps you notice the ethical principle that is most directly involved, such as autonomy, beneficence, nonmaleficence, justice, integrity or respect.',lesson:'This game trains you to recognise ethical principles quickly and accurately in practice.'},
+ {short:'Decision Jigsaw',description:'An ordering game. Arrange the ten ethical decision-making steps into the correct sequence.',link:'The jigsaw shows that ethical decisions are not guesses. Psychologists need a careful process: identify the concern, check standards, consult, decide, act and reflect.',lesson:'This game shows that good ethical judgement follows a clear and reasoned process.'},
+ {short:'Practitioner Builder',description:'A word-building challenge. Discover the competence terms that help psychologists practise safely.',link:'The hidden words represent key parts of competence, such as supervision, training, referral, diligence and professional boundaries.',lesson:'This game reminds you that competent practice means knowing your limits and seeking support when needed.'},
+ {short:'Confidentiality Streak',description:'A fast decision game. Decide when information should stay private and when limited disclosure may be justified.',link:'The falling scenarios help you practise an important skill: protect confidentiality, but recognise the limited situations in which disclosure may be ethically or legally justified.',lesson:'This game strengthens your judgement about privacy, confidentiality and necessary disclosure.'},
+ {short:'Ethics Spin the Wheel',description:'An investigation game. Open six professional-responsibility case files, choose the most ethical response, and review the evidence.',link:'Each case file represents a real professional duty. Weighing choices against standards helps you justify decisions rather than guessing.',lesson:'This game develops reasoned professional judgement concerning payments, records, advertising, public statements, interruption of services, and involuntary commitment.'},
+ {short:'Consent Match',description:'A matching-pairs activity. Match each informed-consent element with its meaning.',link:'The matching pairs show that valid informed consent requires clear information about procedures, risks, alternatives, practical arrangements and complaints.',lesson:'This game reinforces that informed consent supports autonomy through clear and meaningful information.'}
+];
+function ethicsGuide(i){const l=STAGE_LESSONS[i];return `<div class="ethics-guide"><img src="author-portrait.png" alt="Illustrated portrait of Dr. Priyalatha Govindasamy"><div class="ethics-bubble"><strong>💬 Ethics connection</strong><p>${l.link}</p></div></div>`}
+const questions=[['AUTONOMY','BENEFICENCE','NONMALEFICENCE','JUSTICE','INTEGRITY','FIDELITY','RESPONSIBILITY','RESPECT','CONFIDENTIALITY','CONSENT','COMPETENCE','DIGNITY','PRIVACY','BOUNDARIES','FAIRNESS','HONESTY'],['RESPECT','JUSTICE','PRIVACY','INTEGRITY','COMPETENCE','AUTONOMY','CONSENT','FAIRNESS','DIGNITY','RESPONSIBILITY','BENEFICENCE','CONFIDENTIALITY','BOUNDARIES','NONMALEFICENCE','FIDELITY','HONESTY']];
+const steps=['Recognise an ethical concern','Clarify facts and context','Identify issues and options','Check professional standards and laws','Consult ethics literature','Apply ethical principles','Consult a supervisor or peers','Deliberate and decide','Act and document','Reflect on the outcome'];
+const hangBank=[
+{word:'SUPERVISION',hint:'Guidance and oversight from an experienced professional.'},
+{word:'TRAINING',hint:'Formal preparation to develop necessary knowledge and skills.'},
+{word:'REFERRAL',hint:'Arranging care with another appropriately qualified professional.'},
+{word:'DILIGENCE',hint:'Careful, conscientious professional effort.'},
+{word:'BOUNDARIES',hint:'Limits that protect the professional relationship.'},
+{word:'COMPETENCE',hint:'Knowledge and skills needed to practise responsibly.'},
+{word:'CONSULTATION',hint:'Seeking another qualified professional’s advice on a difficult matter.'},
+{word:'ACCOUNTABILITY',hint:'Being answerable for one’s professional decisions and conduct.'},
+{word:'INTEGRITY',hint:'Honesty and accuracy in professional work.'},
+{word:'ASSESSMENT',hint:'A systematic process for evaluating psychological characteristics.'},
+{word:'CONFIDENTIALITY',hint:'Protecting entrusted information against unauthorised disclosure.'},
+{word:'DOCUMENTATION',hint:'Keeping accurate records of professional services and decisions.'},
+{word:'REFLECTION',hint:'Critically considering one’s own actions to improve professional practice.'},
+{word:'CREDENTIALS',hint:'Qualifications that support claims about training and expertise.'},
+{word:'IMPARTIALITY',hint:'Avoiding biased judgement when evaluating others.'}
+];
+// Illustrative disclosures for gameplay; NOT asserted to be the book's nine official confidentiality limits.
+const confCases=[{t:'Client reveals their favourite food',risk:false},{t:'A court issues a valid disclosure order',risk:true},{t:'Client expressly authorises limited sharing',risk:true},{t:'An immediate, credible threat to another person',risk:true},{t:'Client discusses a stressful exam',risk:false},{t:'Suspected child abuse requiring a protection response',risk:true},{t:'Client talks about a hobby',risk:false},{t:'Urgent safety concern involving self harm',risk:true},{t:'A legally mandated report is required',risk:true},{t:'A supervisor requests minimum details for appropriate consultation',risk:true},{t:'Employer casually requests full therapy notes',risk:false},{t:'Information needed by emergency responders to protect life',risk:true},{t:'Client shares marital concerns without immediate danger',risk:false},{t:'A competent adult gives specific informed permission',risk:true},{t:'A friend asks whether someone attends therapy',risk:false},{t:'A lawful authority requires a limited disclosure',risk:true}];
+const pairs=[['Logistics','Session fees, timing and duration'],['Insurance','Coverage, claims and relevant policy rules'],['Indirect effects','Possible effects on family and home life'],['Alternative support','Family support or support groups'],['New treatments','Innovative approaches and evidence limitations'],['Grievances','How and where to raise a complaint']];
+const $=id=>document.getElementById(id);const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+try{localStorage.removeItem('ethicsMountainV2')}catch(e){};let state={name:'',matric:'',group:'',unlocked:0,score:0,finished:false};let active=Math.min(state.unlocked,5),session={},timer=null;let audioCtx=null;
+function chime(){try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();[523.25,659.25,783.99,1046.5].forEach((n,i)=>{let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=n;g.gain.setValueAtTime(.001,audioCtx.currentTime+i*.12);g.gain.exponentialRampToValueAtTime(.11,audioCtx.currentTime+i*.12+.02);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+i*.12+.29);o.connect(g).connect(audioCtx.destination);o.start(audioCtx.currentTime+i*.12);o.stop(audioCtx.currentTime+i*.12+.31)})}catch(e){}}
+function nameSafe(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+function persist(){/* Sensitive registration data is intentionally not saved between visits. */}function confetti(){const c=$('confetti');c.innerHTML='';for(let i=0;i<38;i++){let b=document.createElement('b');b.textContent=['✨','⭐','🎉','🎊'][i%4];b.style.left=(Math.random()*100)+'%';b.style.animationDelay=(Math.random()*.7)+'s';c.append(b)}setTimeout(()=>c.innerHTML='',3300)}
+
+const climbPoints=[[9,89],[9,84],[21,79],[34,76],[45,73],[52,66],[57,56],[51,46],[48,37],[54,29],[61,23],[64,14],[62,8]];
+const checkpointRouteIndices=[1,4,6,8,10,11,12];
+let hikerIndex=0,hikerMotion=null,hikerTarget=0;
+function climberAt(x,y){const el=$('climber');if(!el)return;el.style.left=x+'%';el.style.top=y+'%'}
+function moveHikerTo(progress){
+ const target=checkpointRouteIndices[Math.min(progress,6)],el=$('climber');if(!el)return;
+ if(!el.dataset.positioned){hikerIndex=0;climberAt(...climbPoints[0]);el.dataset.positioned='true'}
+ if(hikerMotion && hikerTarget===target)return;
+ if(hikerMotion)cancelAnimationFrame(hikerMotion);
+ const start=hikerIndex;hikerTarget=target;
+ if(start===target){el.classList.remove('hiking');el.classList.toggle('celebrate',progress===6);return}
+ const direction=target>=start?1:-1,route=[];
+ for(let i=start;i!==target;i+=direction){let a=climbPoints[i],b=climbPoints[i+direction];route.push({a,b,d:Math.hypot(b[0]-a[0],(b[1]-a[1])*1.35)})}
+ const total=route.reduce((sum,r)=>sum+r.d,0),duration=Math.max(750,Math.min(5200,total*70));
+ let startAt=0;
+ el.classList.remove('celebrate');el.classList.add('hiking');
+ const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+ function frame(time){if(!startAt)startAt=time;let fraction=reduced?1:Math.min(1,(time-startAt)/duration),distance=fraction*total;
+ for(const segment of route){if(distance<=segment.d){let t=segment.d?distance/segment.d:1;climberAt(segment.a[0]+(segment.b[0]-segment.a[0])*t,segment.a[1]+(segment.b[1]-segment.a[1])*t);break}distance-=segment.d}
+ if(fraction<1){hikerMotion=requestAnimationFrame(frame)}else{hikerIndex=target;climberAt(...climbPoints[target]);el.classList.remove('hiking');el.classList.toggle('celebrate',progress===6);hikerMotion=null}}
+ hikerMotion=requestAnimationFrame(frame)
+}
+function map(){ $('score').textContent='⭐ '+state.score+' points';$('stage').textContent=state.finished?'🏆 Summit reached':'🥾 Stage '+(active+1)+' / 6';$('stations').innerHTML=stages.map((s,i)=>`<button class="station ${i<state.unlocked?'done':i>state.unlocked?'locked':''}" style="--x:${s.x};--y:${s.y}" data-stage="${i}" ${i>state.unlocked?'disabled':''}><span class="emoji">${i>state.unlocked?'🔒':i<state.unlocked?'✅':s.icon}</span><span class="num">Stage ${i+1}</span><span class="name">${s.game}</span></button>`).join('');document.querySelectorAll('[data-stage]').forEach(b=>b.onclick=()=>show(+b.dataset.stage));moveHikerTo(state.unlocked);}
+function show(i){if(i>state.unlocked){return;}clearInterval(timer);if(session&&session.cleanup)session.cleanup();active=i;session={};document.body.classList.remove('congkak-active');map();let s=stages[i];$('panel').innerHTML=`<div class="topline"><span class="tag">STAGE ${i+1} · ${s.game}</span><span class="pill">${i<state.unlocked?'✓ Passed':'🔓 Current'}</span></div><h1>${s.icon} ${s.title}</h1><p class="muted stage-about"><strong>${STAGE_LESSONS[i].short}:</strong> ${STAGE_LESSONS[i].description}</p><div class="ethics-context"><strong>Why this game matters:</strong> ${STAGE_LESSONS[i].lesson}</div><div class="gamearea" id="gamearea"></div><div class="note">Need to revise? <a href="${readingLink(i)}" target="_blank" rel="noopener">Read: ${TOPIC_NAMES[i]} ↗</a>. Return here when ready.</div>`;[bingo,puzzle,hang,fruit,caseFiles,memory][i]();requestAnimationFrame(()=>{const el=$('panel');if(el)el.scrollIntoView({block:'start',behavior:'instant'});});}
+
+function msg(text,kind='warn'){$('feedback')?.remove();let d=document.createElement('div');d.id='feedback';d.className='feedback '+kind;d.innerHTML=text;$('gamearea').appendChild(d)}
+function fail(text){msg(`<strong>Revision checkpoint:</strong> ${text}<p>Please review the relevant topic in the <a href="${readingLink(active)}" target="_blank" rel="noopener">${TOPIC_NAMES[active]} chapter</a>, then return for a fresh challenge.</p><div class="actions"><button id="retry">Try new challenge ↻</button></div>`,'warn');$('retry').onclick=()=>show(active)}
+function win(details){
+ clearInterval(timer);if(session.won)return;session.won=true;
+ const stageWon=active,earned=active===state.unlocked?100:25;
+ state.score+=earned;
+ if(active===state.unlocked)state.unlocked=Math.min(6,state.unlocked+1);
+ if(state.unlocked===6)state.finished=true;
+ persist();confetti();chime();map();
+ if(state.finished){showSummit();return;}
+ $('gamearea').innerHTML=`<div class="stage-finish"><div class="finish-icon">✅</div><h2>${STAGE_LESSONS[stageWon].short} complete!</h2><p>${details}</p>${ethicsGuide(stageWon)}<p class="finish-score">⭐ +${earned} points</p><button id="next">Continue to ${STAGE_LESSONS[state.unlocked].short} →</button></div>`;
+ $('next').onclick=()=>show(state.unlocked);
+}
+// Stage 5 embeds the simplified solo Congkak within the main game, without any external file.
+// Congkak runs inside the main panel, not an iframe.
+const CONGKAK_BANK = [
+
+ {name:"Payment",tempt:"Putting fees first",gist:"Fair, clear fees that never come before welfare",qs:[
+  {q:"Puan Rohana owes RM900 for ten sessions. She is no longer at risk and has stopped answering your calls. Your consent form said nothing about unpaid fees. What is the most defensible next step?",o:[
+    "Send the account to a collection agency, since she signed a form agreeing to your fee and has now stopped responding.",
+    "Write the debt off quietly and keep the door open, so that money never gets in the way of her care.",
+    "Contact her and offer a payment plan, but do not use an agency, as she was never told one might be used.",
+    "Keep her file on hold until the bill is settled, then release a copy promptly if she asks for it."],a:2,
+   why:"A collection agency can only be used if the client was told in advance. Writing off silently avoids a real issue, and holding records over unpaid fees is never acceptable."},
+  {q:"A smallholder in Raub has no cash and offers durian from his orchard as payment. Paying in produce is normal in his community. When would accepting be acceptable?",o:[
+    "When an independent price check shows the market value of the durian matches your usual fee exactly, so neither side gains.",
+    "When he proposes it himself, it is normal in his community, it does not exploit him and the terms are clear.",
+    "Never. Accepting goods for counselling always turns you into his customer as well as his counsellor, which is a dual relationship.",
+    "When you also lower your fee for the produce, so that the exchange clearly favours him rather than you."],a:1,
+   why:"Bartering is not banned outright. It is acceptable only when the client asks for it, it is culturally normal, it does not exploit the client and the terms are clear. Matching values alone is not enough."},
+  {q:"A well qualified psychiatrist offers you RM50 for each client you refer to him. Many of your clients do need medication reviews. What should you do?",o:[
+    "Accept, because you would be referring these clients to him anyway, so the payment does not change any clinical decision.",
+    "Accept, but tell each client about the payment in writing so they can make an informed choice about seeing him.",
+    "Decline the payment, and also stop referring to him so there is no appearance of a private arrangement.",
+    "Decline the payment, and keep referring clients to him whenever their needs call for a medication review."],a:3,
+   why:"Referral fees create a conflict of interest, even when disclosed. Refusing to refer at all overcorrects and harms clients who need him."}]},
+ {name:"Interruption and termination",tempt:"Abandoning clients",gist:"Never abandon a client in need",qs:[
+  {q:"After six months, a client is not improving but says your sessions are the only place she feels heard. You believe another type of therapy would help her more. What is the best course?",o:[
+    "Continue, because ending now would feel like rejection and could undo the trust she has finally built with you.",
+    "Reduce sessions to once a month so that she gradually depends on you less without feeling pushed away.",
+    "Share your view honestly, explore her feelings about ending and help her move to a better suited service.",
+    "End at the next session, explain your reasons kindly and give her a list of other centres she could contact."],a:2,
+   why:"Continuing without benefit is not kind, and an abrupt ending is abandonment. Ending should be discussed, planned and supported."},
+  {q:"A client can no longer pay and is not in crisis. You cannot afford to see him free. Is ending the relationship abandonment?",o:[
+    "Yes. Ending because a client cannot pay puts your income before his welfare, so it is always abandonment.",
+    "No, as long as you send him a clear letter after the last session explaining why the sessions had to stop.",
+    "Yes, unless he has already completed at least half of the sessions you planned together at the start.",
+    "No, provided you discuss it with him well before the last session and help him find affordable services."],a:3,
+   why:"Ending for nonpayment is allowed when the client is not in crisis, it is discussed in advance and a referral is offered. A letter afterwards is too late."},
+  {q:"You run a solo private practice. What should you arrange in case you suddenly die or become unable to work?",o:[
+    "A named colleague who is authorised to access your records, contact your clients and arrange their care.",
+    "An instruction for your family to destroy all client records promptly, so that no one else can ever read them.",
+    "A standing notice on your website telling clients how to collect their own files if the practice closes.",
+    "Nothing formal. Adult clients can find other counsellors on their own, and a plan could risk their privacy."],a:0,
+   why:"A professional will protects clients from sudden abandonment. Family members should not handle confidential records."}]},
+ {name:"Records",tempt:"Careless records",gist:"Accurate, secure and kept long enough",qs:[
+  {q:"An adult client asks to read her file. It includes your early note that she \"may have a personality disorder\", a view you no longer hold. What should you do?",o:[
+    "Remove the old note before she reads it, since keeping an inaccurate label in her file could harm her later.",
+    "Give her a careful written summary instead of the full file, so that early working notes do not upset her.",
+    "Refuse access, because the file is the practice's property and your working notes are written for professionals.",
+    "Allow access, offer to read it through with her and explain how and why your view has changed since then."],a:3,
+   why:"Clients generally have a right to see their records, and records must never be altered afterwards. Adding context is honest; deleting the note is not."},
+  {q:"A client mentions suicidal thoughts, and after assessing her you judge the risk to be low. What should your notes include?",o:[
+    "Nothing about suicide, so that a low risk comment cannot be misread if her records are ever subpoenaed.",
+    "What she said, how you assessed the risk, the reasons for your judgement and the safety plan you agreed.",
+    "A brief line stating \"Suicide risk assessed: low\", since a short note is clear and harder to misinterpret.",
+    "A full transcript of the session, so that every word is on record and nothing can be missed later."],a:1,
+   why:"Risk notes must show your reasoning. A one line verdict cannot be defended, and a full transcript is neither practical nor required."},
+  {q:"You saw a couple together. Now the husband alone asks for a copy of the joint file for his divorce lawyer. What should you do?",o:[
+    "Release only the parts of the file that record what he said, since those are his own words.",
+    "Give it to him, because he was a client in every one of those sessions and has a right to his record.",
+    "Release it only with written consent from both partners, unless a court orders it to be released.",
+    "Refuse permanently, because joint records hold two people's confidences and can therefore never be released."],a:2,
+   why:"A joint file holds both partners' confidences. Both must consent, unless a court orders release. Refusing permanently ignores lawful court orders."}]},
+ {name:"Advertising",tempt:"Deceptive adverts",gist:"Honest, never exploiting or deceiving",qs:[
+  {q:"You hold a PhD in Chemistry and a master's in counselling. How may you present yourself in adverts for your counselling practice?",o:[
+    "Write \"PhD\" after your name instead of \"Dr\" before it, since the letters are accurate and sound less like a medical title.",
+    "Use \"Dr\" freely, because it is a genuine doctorate that you earned and it is not a false claim.",
+    "Use \"Dr\" in printed adverts only, where there is room to list all of your qualifications in full.",
+    "Lead with your counselling degree, and if you mention the PhD, state clearly that it is in Chemistry."],a:3,
+   why:"Using an unrelated doctorate without saying what it is in implies doctoral training in counselling, which misleads the public."},
+  {q:"A former client who ended two years ago and is doing well offers to post a glowing review on your website. What is the main ethical concern?",o:[
+    "There is none, because she ended two years ago, offered freely and is no longer in a professional relationship with you.",
+    "She may still feel obliged to please you, and a public review reveals to everyone that she had counselling.",
+    "Reviews only become a problem if they mention fees or compare you favourably with named colleagues.",
+    "You must edit the review yourself before it is posted, to remove anything that could identify her."],a:1,
+   why:"Former clients can still be open to influence, and a review can expose their history. Editing it yourself makes it misleading."},
+  {q:"You work at a government clinic and run an evening private practice. A clinic client complains about the long waiting list. What should you do?",o:[
+    "Give her your private practice card but make no recommendation, so the choice stays entirely hers.",
+    "Help her within the clinic system, and do not use your clinic post to draw her into your private practice.",
+    "Offer her a private evening appointment, because her welfare matters more than the clinic's waiting list.",
+    "Be honest that clinic services are slow, so she can make an informed choice about private care elsewhere."],a:1,
+   why:"Using an agency position to draw clients into your private practice is a conflict of interest, even when the client is left to choose."}]},
+ {name:"Public statements",tempt:"Therapy on air",gist:"Educate the public; do not do therapy on air",qs:[
+  {q:"On a live radio show, a caller says she hurt herself last night and is frightened. What is the most appropriate response?",o:[
+    "Thank her and move straight to the next caller, because doing therapy on air would be unethical.",
+    "Offer a short supportive counselling session on air, since she reached out and other listeners may benefit.",
+    "Respond with care, give crisis contacts on air and have the producers take her details privately for follow up.",
+    "Ask her on air for her address and phone number so that emergency help can be sent to her straight away."],a:2,
+   why:"You must not do therapy on air, but you cannot ignore someone at risk. Show care, give resources and arrange private follow up."},
+  {q:"After your public talk on stress, someone asks whether she can stop her antidepressants because your tips have helped. What do you say?",o:[
+    "If she feels better, the stress tips may be enough on their own, but she should keep monitoring her mood.",
+    "Suggest she reduces the dose slowly rather than stopping suddenly, while continuing to use the tips.",
+    "Tell her firmly that antidepressants should never be stopped once started, to protect her from relapse.",
+    "Explain that only her doctor can advise on this, and encourage her to raise it at her next appointment."],a:3,
+   why:"Medication advice is outside a counsellor's competence. Saying it should never be stopped is also beyond your role."},
+  {q:"A TV producer asks you to analyse a politician's \"narcissistic traits\" from video clips. What is the best reply?",o:[
+    "Agree, but say clearly on air that it is only your personal opinion and not a professional diagnosis.",
+    "Decline, because counsellors should keep away from news programmes to protect the profession's neutrality.",
+    "Agree, as long as you describe only observable behaviours and avoid naming any specific diagnosis.",
+    "Decline to comment on his mental state, and offer instead to explain narcissism in general terms."],a:3,
+   why:"Commenting on the mental state of someone you have not assessed is unethical, however it is labelled. Media work itself is fine if it educates."}]},
+ {name:"Involuntary commitment",tempt:"Needless force",gist:"Protect safety with the least loss of freedom",qs:[
+  {q:"A client with psychosis refuses medication. He is eating, sleeping and has no thoughts of harming anyone. His family wants him admitted. What is the ethical position?",o:[
+    "Support admission, since his psychosis is untreated and he is unlikely to accept help without it.",
+    "Close the case, because he has the right to refuse treatment and you must respect his decision.",
+    "Refusal alone does not justify admission. Work with him and his family on voluntary options.",
+    "Suggest the family takes him to hospital for a \"check up\", so that qualified doctors can decide what is needed."],a:2,
+   why:"Involuntary admission needs serious danger or inability to care for oneself. Refusing treatment is not enough, and misleading him is dishonest."},
+  {q:"A client says she will jump from her flat tonight. She refuses all voluntary help, and no one can stay with her. What comes next?",o:[
+    "Ask her to sign a written safety agreement, then let her go home with crisis line numbers.",
+    "Start your centre's emergency procedure for urgent assessment, and tell her honestly what you are doing and why.",
+    "Let the session end calmly, then call the police after she leaves so that she does not panic or run.",
+    "Respect her autonomy, book her a session for tomorrow morning and phone her tonight to check on her."],a:1,
+   why:"There is immediate danger and no less restrictive option, so emergency action is justified. A written promise does not keep her safe, and acting behind her back is dishonest."},
+  {q:"After an involuntary admission, the client is furious and says she will never trust a counsellor again. What responsibility do you still have?",o:[
+    "Acknowledge her anger, explain your reasons honestly and help her return to voluntary care when she is ready.",
+    "None. Once she was admitted, responsibility for her care passed fully to the hospital team.",
+    "Explain the decision firmly and clearly until she accepts that it was the right thing to do.",
+    "Transfer her to another counsellor straight away, since trust with you may now be beyond repair."],a:0,
+   why:"The relationship continues after a crisis. Honest repair helps her return to care, while defending yourself or transferring her abruptly does not."}]}
+];
+function caseFiles(){
+ const area=$('gamearea');
+ const topics=shuffle(CONGKAK_BANK.map(entry=>({domain:entry.name,...entry.qs[0]})));
+ const letters=['A','B','C','D'];
+ session.caseStep=0;session.caseCorrect=0;session.caseAnswers=[];
+ function wheel(){
+  const n=session.caseStep;
+  if(n===topics.length){
+   if(session.caseCorrect>=4){win(`You made ${session.caseCorrect} of 6 sound professional-responsibility decisions.`);return}
+   area.innerHTML=`<div class="case-end"><h2>Review required</h2><p>You answered ${session.caseCorrect} of 6 correctly. You need at least 4 to pass.</p><button type="button" id="caseRetry">Spin the topics again ↻</button></div>`;
+   $('caseRetry').onclick=()=>{session.caseStep=0;session.caseCorrect=0;session.caseAnswers=[];topics.sort(()=>Math.random()-.5);wheel()};return;
+  }
+  const names=topics.map(x=>x.domain);
+  const segs=names.map((name,i)=>`<div class="wheel-label" style="--i:${i};--count:${names.length}"><span>${name}</span></div>`).join('');
+  area.innerHTML=`<section class="case-game"><div class="instructions"><strong>🎡 Spin the Wheel — Professional Responsibilities</strong><p>Spin to reveal an ethics topic, then answer its scenario. There are six topics, one question per topic. Get <strong>4 of 6</strong> right to pass.</p></div><div class="case-progress"><span>Topic ${n+1} / 6</span><span>Correct: ${session.caseCorrect}</span></div><div class="ethics-wheel-wrap"><div class="wheel-pointer" aria-hidden="true">▼</div><div class="ethics-wheel" id="ethicsWheel">${segs}</div></div><p class="wheel-announcement" id="wheelAnnouncement" aria-live="polite">Spin to choose your next topic!</p><div class="actions"><button type="button" id="spinTopic">🎡 Spin the wheel</button></div></section>`;
+  $('spinTopic').onclick=()=>{
+   const btn=$('spinTopic');btn.disabled=true;btn.textContent='Spinning…';
+   const wheelEl=$('ethicsWheel');
+   // The unseen questions are presented in a shuffled order. Spinning reveals the next selected topic.
+   const rotation=1440+(360-(n*360/topics.length))%360;
+   wheelEl.style.transform=`rotate(${rotation}deg)`;
+   $('wheelAnnouncement').textContent='The wheel is spinning…';
+   session.spinTimeout=setTimeout(()=>{session.spinTimeout=null;drawQuestion()},1650);
+   session.cleanup=()=>{if(session.spinTimeout)clearTimeout(session.spinTimeout)};
+  };
+ }
+ function drawQuestion(){
+  const n=session.caseStep,c=topics[n];
+  area.innerHTML=`<section class="case-game"><div class="instructions"><strong>🎡 The wheel selected: ${c.domain}</strong><p>Read the case and choose the best professional decision.</p></div><div class="case-progress"><span>Topic ${n+1} / 6</span><span>Correct: ${session.caseCorrect}</span></div><div class="case-document"><div class="case-header"><span>PROFESSIONAL RESPONSIBILITY</span><strong>${c.domain}</strong></div><h2>What would you do?</h2><p class="case-prompt">${c.q}</p><div class="case-options">${c.o.map((option,i)=>`<button type="button" class="case-choice" data-choice="${i}"><span class="case-letter">${letters[i]}</span><span>${option}</span></button>`).join('')}</div><div class="case-feedback" id="caseFeedback" hidden></div></div></section>`;
+  area.querySelectorAll('[data-choice]').forEach(b=>b.onclick=()=>{
+   if(session.caseAnswers.length>n)return;
+   const chosen=+b.dataset.choice,ok=chosen===c.a;
+   session.caseAnswers.push(ok);if(ok)session.caseCorrect++;
+   area.querySelectorAll('[data-choice]').forEach(btn=>{btn.disabled=true;const id=+btn.dataset.choice;if(id===c.a)btn.classList.add('correct');else if(id===chosen)btn.classList.add('incorrect')});
+   const fb=$('caseFeedback');fb.hidden=false;
+   const p=document.createElement('p');p.textContent=(ok?'✓ Correct! ':'Not quite. ')+c.why;
+   const next=document.createElement('button');next.type='button';next.textContent=n===5?'See my result →':'Spin for the next topic →';next.onclick=()=>{session.caseStep++;wheel()};fb.append(p,next);
+  });
+ }
+ wheel();
+}
+
+// Applied Ethics Bingo: students interpret situations instead of copying target words.
+const ethicsClues=[
+{answer:'AUTONOMY',q:'A competent adult understands the options but declines a recommended psychological intervention. Which principle is most directly involved?',why:'Autonomy recognises the person’s right to make an informed decision, including refusing a recommendation.'},
+{answer:'BENEFICENCE',q:'Before suggesting an intervention, a practitioner compares the likely benefits and selects an approach intended to improve the client’s wellbeing. Which principle is central?',why:'Beneficence concerns promoting the person’s welfare.'},
+{answer:'NONMALEFICENCE',q:'An assessment method could cause avoidable distress with little justification, so the psychologist declines to use it. What principle is central?',why:'Nonmaleficence requires avoiding unnecessary or foreseeable harm.'},
+{answer:'JUSTICE',q:'A university psychology service redesigns its referral process so access is not unfairly restricted to one faculty. Which principle is emphasised?',why:'Justice concerns fair access and equitable treatment.'},
+{answer:'INTEGRITY',q:'A researcher reports an inconvenient nonsignificant finding rather than changing the results to look successful. Identify the principle.',why:'Integrity involves honesty and accuracy in professional and scientific work.'},
+{answer:'FIDELITY',q:'A psychologist follows through on an agreed professional commitment to a client rather than quietly abandoning it. What principle does this illustrate?',why:'Fidelity includes faithfulness to legitimate professional obligations and trust.'},
+{answer:'RESPONSIBILITY',q:'After detecting an error in a psychological report, the psychologist promptly corrects it and addresses possible consequences. Which concept fits best?',why:'Responsibility includes accountability for professional actions and their consequences.'},
+{answer:'RESPECT',q:'During an interview, a student avoids dismissive language and listens carefully to a participant with a different worldview. Which value is illustrated?',why:'Respect includes treating individuals with consideration and recognising differences.'},
+{answer:'CONFIDENTIALITY',q:'A practitioner declines to discuss identifying case details with a curious colleague who has no role in the client’s care. Which duty is involved?',why:'Confidentiality protects information entrusted through a professional relationship.'},
+{answer:'CONSENT',q:'Before taking part in a study, a participant receives understandable information, can ask questions, and freely agrees. What process is this?',why:'Informed consent requires adequate understanding and a voluntary decision.'},
+{answer:'COMPETENCE',q:'A graduate is offered a specialist assessment outside their training and seeks qualified supervision or referral before taking it on. Which professional requirement is central?',why:'Competence means practising within one’s education, training, skills and supervised experience.'},
+{answer:'DIGNITY',q:'A practitioner speaks to an older adult as a person of worth rather than treating them as incapable solely because of age. What value is recognised?',why:'Dignity recognises the inherent worth of a person.'},
+{answer:'PRIVACY',q:'A researcher asks only for personal information that is genuinely necessary and allows participants not to disclose unrelated intimate facts. Which right is protected?',why:'Privacy concerns control over access to one’s person and personal information.'},
+{answer:'BOUNDARIES',q:'A counsellor declines to enter a profitable business venture with a current client. What professional safeguard is being maintained?',why:'Professional boundaries protect the therapeutic relationship from conflicting roles and exploitation.'},
+{answer:'FAIRNESS',q:'Two trainees are graded against the same clearly communicated performance criteria, regardless of personal popularity. What value is highlighted?',why:'Fairness means applying criteria impartially and consistently.'},
+{answer:'HONESTY',q:'A psychologist explains that a screening result is preliminary instead of claiming certainty to impress a manager. Which quality is demonstrated?',why:'Honesty requires truthful communication, including about limitations.'}
+];
+// A real 4x4 Bingo card: one complete row, column or diagonal wins.
+const bingoLines=[
+ ...Array.from({length:4},(_,r)=>[0,1,2,3].map(c=>r*4+c)),
+ ...Array.from({length:4},(_,c)=>[0,1,2,3].map(r=>r*4+c)),
+ [0,5,10,15],[3,6,9,12]
+];
+function bingo(){
+ session.clues=shuffle(ethicsClues);session.clueIndex=0;session.errors=0;
+ session.marked=new Set();session.failed=false;
+ session.bingoWords=shuffle(ethicsClues.map(x=>x.answer));
+ session.usedBingoClues=new Set();
+ const letters=['B','I','N','G'];
+ $('gamearea').innerHTML=`<div class="instructions"><strong>Ethics Bingo · Complete a line!</strong> Read the scenario and select the matching ethical principle from the Bingo card. A correct answer marks that square. Win by completing <strong>four squares in one horizontal, vertical or diagonal line</strong>. Three incorrect answers require a retry. The card stays in place throughout the round.</div>
+ <div class="case-card"><span class="tag" id="bingoCount"></span><h2 id="bingoCase"></h2><div class="small muted" id="bingoAttempts"></div></div>
+ <div class="real-bingo" role="group" aria-label="Ethics Bingo 4 by 4 card"><div class="bingo-heading">${letters.map(l=>`<span>${l}</span>`).join('')}</div><div class="board" id="bingoboard">${session.bingoWords.map((w,i)=>`<button type="button" class="tile" data-bingo-index="${i}" data-word="${w}" aria-label="Bingo square ${i+1}: ${w}">${w}</button>`).join('')}</div></div>
+ <div id="bingoExplain" class="small muted" aria-live="polite">Mark four squares in a line to win.</div>`;
+ document.querySelectorAll('[data-bingo-index]').forEach(btn=>btn.onclick=()=>{
+  if(session.won||session.failed||btn.disabled)return;
+  const clue=session.clues[session.clueIndex];const index=Number(btn.dataset.bingoIndex);
+  if(btn.dataset.word===clue.answer){
+   session.marked.add(index);btn.classList.add('found');btn.disabled=true;
+   $('bingoExplain').textContent='✓ '+clue.why;
+   const winning=bingoLines.find(line=>line.every(pos=>session.marked.has(pos)));
+   if(winning){winning.forEach(pos=>document.querySelector(`[data-bingo-index="${pos}"]`).classList.add('bingo-win'));win('BINGO! You completed a row, column or diagonal by identifying the ethical principles.');return;}
+  }else{
+   session.errors++;
+   btn.classList.add('incorrect');setTimeout(()=>btn.classList.remove('incorrect'),650);
+   $('bingoExplain').textContent='Not quite. '+clue.why+' The marked squares stay in place.';
+   if(session.errors>=3){session.failed=true;document.querySelectorAll('[data-bingo-index]').forEach(x=>x.disabled=true);fail('Three incorrect answers. Review the ethical principles before playing a new Bingo card.');return;}
+  }
+  session.clueIndex++;
+  if(session.clueIndex>=session.clues.length){session.clues=shuffle(ethicsClues);session.clueIndex=0;}
+  bingoPrompt();
+ });
+ bingoPrompt();
+}
+function bingoPrompt(){
+ const q=session.clues[session.clueIndex];
+ $('bingoCount').textContent='MARKED '+session.marked.size+' / 16 · COMPLETE A LINE';
+ $('bingoCase').textContent=q.q;
+ $('bingoAttempts').textContent='Incorrect: '+session.errors+' / 3 · 4 in a row, column or diagonal wins';
+}
+function puzzle(){session.order=shuffle(steps.map((t,i)=>i));session.pick=[];let g=$('gamearea');g.innerHTML=`<div class="instructions"><strong>Ten Step Jigsaw:</strong> Build the ethical decision process in order. Click the shuffled pieces one at a time. You can undo or shuffle again.</div><div id="ordered"></div><h3>Shuffled pieces</h3><div class="chips" id="pieces"></div><div class="actions"><button id="undo" class="alt">Undo last piece</button><button id="check">Check sequence</button></div>`;function render(){ $('ordered').innerHTML=Array.from({length:10},(_,i)=>`<div class="slot"><span>${i+1}</span>${session.pick[i]===undefined?'Select a piece…':steps[session.pick[i]]}</div>`).join('');$('pieces').innerHTML=session.order.filter(i=>!session.pick.includes(i)).map(i=>`<button class="chip" data-pick="${i}">${steps[i]}</button>`).join('');document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{session.pick.push(+b.dataset.pick);render()})}render();$('undo').onclick=()=>{session.pick.pop();render()};$('check').onclick=()=>{if(session.pick.length<10){msg('Complete all ten positions before checking.');return}if(session.pick.every((v,i)=>v===i))win('You placed all ten ethical decision steps in sequence.');else fail('The sequence is not yet correct. Your next attempt will reshuffle the pieces.')};}
+function hang(){
+ session.index=0;session.failure=0;session.used=new Set();session.wrong=0;
+ session.roundWords=shuffle([...hangBank]).slice(0,7);session.word=session.roundWords[0];
+ const g=$('gamearea');g.innerHTML=`<div class="instructions"><strong>Build the Practitioner:</strong> Discover <strong>7 professional competence words</strong> by guessing letters. After every word, the full answer and its explanation will be shown. You may miss up to 2 words; 3 missed words require a retry.</div><p id="hint"></p><svg class="figure" viewBox="0 0 190 170" aria-label="Practitioner figure"><circle id="part0" cx="93" cy="28" r="17" fill="#e9ab83"/><rect id="part1" x="74" y="48" width="38" height="61" rx="12" fill="#267f9b"/><path id="part2" d="M74 61 L45 94" stroke="#e9ab83" stroke-width="12" stroke-linecap="round"/><path id="part3" d="M112 61 L141 94" stroke="#e9ab83" stroke-width="12" stroke-linecap="round"/><path id="part4" d="M86 105 L69 149" stroke="#254b6b" stroke-width="13" stroke-linecap="round"/><path id="part5" d="M102 105 L119 149" stroke="#254b6b" stroke-width="13" stroke-linecap="round"/></svg><div class="hangword" id="hangword"></div><p id="hangstatus" class="small"></p><div class="alphabet" id="alphabet"></div><div id="wordReveal" class="word-reveal" hidden></div>`;
+ hangDraw();
+}
+function hangDraw(){
+ const w=session.word.word;
+ $('hint').textContent='Clue: '+session.word.hint;
+ $('hangword').textContent=[...w].map(c=>session.used.has(c)?c:'_').join(' ');
+ $('hangstatus').textContent=`Word ${session.index+1} / ${session.roundWords.length} · Missed words: ${session.failure}/3 · Wrong letters: ${session.wrong}/6`;
+ for(let i=0;i<6;i++)$('part'+i).style.opacity=i<(6-session.wrong)?1:.1;
+ $('alphabet').innerHTML='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(c=>`<button type="button" data-letter="${c}" ${session.used.has(c)?'disabled':''}>${c}</button>`).join('');
+ document.querySelectorAll('[data-letter]').forEach(b=>b.onclick=()=>{
+  const c=b.dataset.letter;session.used.add(c);if(!w.includes(c))session.wrong++;
+  const solved=[...w].every(ch=>session.used.has(ch));
+  if(solved||session.wrong>=6){if(!solved)session.failure++;hangReveal(solved);return}
+  hangDraw();
+ });
+}
+function hangReveal(solved){
+ const w=session.word;
+ $('hangword').textContent=w.word.split('').join(' ');
+ $('alphabet').querySelectorAll('button').forEach(b=>b.disabled=true);
+ const area=$('wordReveal');area.hidden=false;
+ const failed= session.failure>=3;
+ area.innerHTML=`<h3>${solved?'✓ Word completed!':'Answer revealed'}</h3><p class="word-answer">${w.word}</p><p><strong>Meaning:</strong> ${w.hint}</p><p>${failed?'You have reached three missed words. Review the terms before trying again.':`Take a moment to read the answer before proceeding.`}</p><button type="button" id="wordContinue">${failed?'Try Build the Practitioner again ↻':session.index===session.roundWords.length-1?'Complete this challenge →':'I have reviewed the answer — Next word →'}</button>`;
+ $('wordContinue').onclick=()=>{
+  if(failed){hang();return}
+  session.index++;
+  if(session.index>=session.roundWords.length){win(`You reviewed all seven practitioner terms and correctly completed ${session.roundWords.length-session.failure} words.`);return}
+  session.word=session.roundWords[session.index];session.used=new Set();session.wrong=0;area.hidden=true;area.innerHTML='';hangDraw();$('hint').scrollIntoView({block:'center',behavior:'smooth'});
+ };
+}
+function fruit(){
+ session.deck=shuffle([...confCases,...confCases.map(x=>({...x}))]);session.spawned=0;session.resolved=0;session.streak=0;session.best=0;session.errors=0;session.running=false;session.live=new Map();session.nextId=0;
+ const g=$('gamearea');g.innerHTML=`<div class="instructions"><strong>⚡ Confidentiality Streak Challenge:</strong> Up to three scenarios fall at once. <strong>Tap situations where disclosure may be justified or authorised.</strong> Let situations that must remain confidential fall untouched. Get <strong>5 correct decisions in a row</strong> to unlock the gate. One wrong decision resets your streak. Three cards can fall together at a moderate pace.</div><div class="fruitinfo"><span id="frprogress">Decisions: 0</span><span id="frscore">🔥 Streak: 0 / 5</span></div><div class="streakdots" id="streakdots">○ ○ ○ ○ ○</div><div class="fruits" id="fruits"><div class="ready-fall">Ready for the challenge?<br><small>Up to three cards fall together.</small></div></div><div class="actions"><button id="startfr">Start falling scenarios ▶</button></div>`;
+ $('startfr').onclick=()=>{session.running=true;$('startfr').disabled=true;let last=performance.now(),spawn=0;
+ function tick(now){if(!session.running)return;let dt=Math.min(.05,(now-last)/1000);last=now;spawn+=dt;
+ let interval=Math.max(1.0,1.35-session.resolved*.007);
+ while(spawn>=interval && session.spawned<session.deck.length && session.live.size<3){spawn-=interval;spawnFruit()}
+ for(const [id,obj] of [...session.live]){obj.y+=dt*(19+Math.min(10,session.resolved*.45));obj.node.style.top=obj.y+'%';obj.node.style.transform=`translate(-50%,-50%) rotate(${Math.sin(now*.002+id)*5}deg)`;if(obj.y>108)resolveFruit(id,false)}
+ if(session.running && session.spawned>=session.deck.length && session.live.size===0){session.running=false;fail('You need five correct decisions consecutively. Read the confidentiality section and try a newly shuffled round.');return}
+ session.raf=requestAnimationFrame(tick)}
+ session.raf=requestAnimationFrame(tick);
+ };
+ session.cleanup=()=>{session.running=false;if(session.raf)cancelAnimationFrame(session.raf)};
+}
+function spawnFruit(){let item=session.deck[session.spawned++],id=++session.nextId;let el=document.createElement('button');el.className='fruit fruit-fall';el.style.setProperty('--fc',['#ffb96e','#f5de85','#c4d8fc','#a2e9bf','#efbfd4'][id%5]);el.style.left=([18,50,82][(session.spawned-1)%3]+(Math.random()*6-3))+'%';el.style.top='-20%';el.textContent=item.t;el.setAttribute('aria-label','Slice: '+item.t);el.onclick=()=>resolveFruit(id,true);$('fruits').append(el);session.live.set(id,{item,node:el,y:-20});}
+function resolveFruit(id,chosen){if(!session.running||!session.live.has(id))return;let v=session.live.get(id);session.live.delete(id);v.node.remove();session.resolved++;let correct=chosen===v.item.risk;if(correct){session.streak++;session.best=Math.max(session.best,session.streak);if(session.streak>=5){session.cleanup();win('Five consecutive sound confidentiality decisions! You mastered the streak challenge.');return}}else{session.errors++;session.streak=0}
+ $('frprogress').textContent=`Decisions: ${session.resolved} · Mistakes: ${session.errors}`;$('frscore').textContent=`🔥 Streak: ${session.streak} / 5`;$('streakdots').textContent='● '.repeat(session.streak)+'○ '.repeat(5-session.streak);$('fruits').classList.remove('flash-good','flash-bad');void $('fruits').offsetWidth;$('fruits').classList.add(correct?'flash-good':'flash-bad');}
+function memory(){let all=pairs.flatMap(([a,b],i)=>[{id:i,text:a},{id:i,text:b}]);session.cards=shuffle(all);session.flipped=[];session.matched=new Set;session.busy=false;session.turns=0;let g=$('gamearea');g.innerHTML=`<div class="instructions"><strong>Flip & Match — Informed Consent:</strong> Reveal two cards at a time and match each consent topic to its explanation. Complete all six pairs.</div><p id="memstatus" class="small">Matched: 0 / 6 · Turns: 0</p><div class="cards" id="cards"></div>`;drawMem()}
+function drawMem(){ $('memstatus').textContent=`Matched: ${session.matched.size} / 6 · Turns: ${session.turns}`;$('cards').innerHTML=session.cards.map((c,i)=>{let face=session.flipped.includes(i)||session.matched.has(c.id);return `<button class="memory ${face?'face':''} ${session.matched.has(c.id)?'match':''}" data-card="${i}" ${session.matched.has(c.id)?'disabled':''}>${face?`<span class="cardtext">${c.text}</span>`:'❓'}</button>`}).join('');document.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>{let i=+b.dataset.card;if(session.busy||session.flipped.includes(i))return;session.flipped.push(i);drawMem();if(session.flipped.length===2){session.turns++;let [a,b]=session.flipped;if(session.cards[a].id===session.cards[b].id){session.matched.add(session.cards[a].id);session.flipped=[];drawMem();if(session.matched.size===pairs.length)win('You matched all six informed-consent components.')}else{session.busy=true;setTimeout(()=>{session.flipped=[];session.busy=false;drawMem()},900)}}})}
+$('beginJourney').onclick=()=>{$('welcome').hidden=true;$('registration').hidden=false;};
+$('registerForm').onsubmit=e=>{e.preventDefault();const n=$('studentName').value.trim(),m=$('studentMatric').value.trim(),g=$('studentGroup').value.trim();if(!n||!m||!g)return;if(state.matric&&state.matric!==m){state.unlocked=0;state.score=0;state.finished=false;}Object.assign(state,{name:n,matric:m,group:g});persist();$('registration').hidden=true;show(Math.min(state.unlocked,5))};$('instructionsAgain').onclick=()=>{$('welcome').hidden=false;};$('reset').onclick=()=>{if(confirm('Clear this student and start a fresh registration?'))freshStudent()};show(state.finished?0:Math.min(state.unlocked,5));
+
+function showSummit(){
+ $('summitName').textContent=state.name||'Explorer';
+ $('summitScore').textContent='⭐ '+state.score+' points';
+ $('summitMatric').textContent=state.matric||'—';
+ $('summitGroup').textContent=state.group||'—';
+ $('summit').hidden=false;confetti();chime();
+}
+$('downloadCertificate').onclick=()=>{if(!state.finished||!state.name||!state.matric||!state.group){alert('Complete the journey and register before downloading the certificate.');return;}
+ let canvas=document.createElement('canvas');canvas.width=1600;canvas.height=1130;let c=canvas.getContext('2d');
+ let grad=c.createLinearGradient(0,0,1600,1130);grad.addColorStop(0,'#fffef7');grad.addColorStop(1,'#e7f2ea');c.fillStyle=grad;c.fillRect(0,0,1600,1130);
+ c.strokeStyle='#256e51';c.lineWidth=21;c.strokeRect(52,52,1496,1026);c.strokeStyle='#d4a648';c.lineWidth=5;c.strokeRect(79,79,1442,972);
+ c.textAlign='center';c.fillStyle='#21523d';c.font='bold 58px Georgia';c.fillText('UNIVERSITI PENDIDIKAN SULTAN IDRIS',800,180);c.font='30px Arial';c.fillText('Department of Psychology · Faculty of Human Development',800,232);c.fillText('KSG3613 Ethics Summit',800,274);
+ c.font='bold 76px Georgia';c.fillText('Certificate of Completion',800,390);c.font='34px Arial';c.fillStyle='#475f54';c.fillText('This certifies that',800,472);
+ c.fillStyle='#183c2c';c.font='bold 66px Georgia';c.fillText(state.name||'Explorer',800,558);
+ c.font='30px Arial';c.fillStyle='#475f54';c.fillText('has completed the Ethics Summit learning journey.',800,626);
+ c.font='bold 42px Arial';c.fillStyle='#256e51';c.fillText('Total Points: '+state.score,800,706);
+ c.font='30px Arial';c.fillStyle='#344a40';c.fillText('Matric ID: '+state.matric+'     ·     Group: '+state.group,800,770);
+ c.font='24px Arial';c.fillText('Completed: '+new Date().toLocaleDateString('en-MY',{year:'numeric',month:'long',day:'numeric'}),800,822);
+ const guideImage=new Image(); guideImage.src='author-portrait.png';
+ const finish=()=>{ if(guideImage.complete&&guideImage.naturalWidth){ c.drawImage(guideImage,140,820,210,210);} c.font='28px Georgia'; c.fillText('Lecturer: Dr. Priyalatha Govindasamy',800,935); c.font='21px Arial'; c.fillText('Educational game completion record · Verify independently for formal certification',800,990); let a=document.createElement('a'); a.download='Ethics_Summit_Certificate_'+(state.matric||'student').replace(/[^a-z0-9_-]/gi,'_')+'.png'; a.href=canvas.toDataURL('image/png'); a.click();};
+ if(guideImage.complete) finish(); else guideImage.onload=finish;
+};
+$('returnToMap').onclick=()=>{$('summit').hidden=true;show(0)};
+function freshStudent(){clearInterval(timer);if(session&&session.cleanup)session.cleanup();state={name:'',matric:'',group:'',unlocked:0,score:0,finished:false};session={};active=0;persist();$('registerForm').reset();$('studentName').value='';$('studentMatric').value='';$('studentGroup').value='';$('summit').hidden=true;$('welcome').hidden=true;$('registration').hidden=false;show(0);}
+$('newExpedition').onclick=freshStudent;
+
+
+
+</script></body></html>

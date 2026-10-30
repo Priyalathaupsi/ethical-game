@@ -1,0 +1,1 @@
+Ethics Summit — Navigation Stable. Upload all files in this ZIP to the GitHub repository root. Open index.html. Complete each stage to unlock the next; previously completed stages can be revisited. Portrait: author-portrait.png.
